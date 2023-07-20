@@ -78,7 +78,8 @@ array_map( 'unlink', array_filter((array) glob("$resultPath/*") ) );//good worki
 
 $wdir = "C:\\Users\\EZ-ocr\\Desktop\\Image Decoder";
 chdir($wdir);
-exec('java -jar app-assembly-1.0-SNAPSHOT.jar covermymeds C:/ocr/fax_documents C:\ocr\engine_results', $output, $return);
+// exec('java -jar app-assembly-1.0-SNAPSHOT.jar covermymeds C:/ocr/fax_documents C:\ocr\engine_results', $output, $return);
+//exec('java -jar app-assembly-1.0-SNAPSHOT.jar covermymeds C:/ocr/fax_documents C:\ocr\engine_results', $output, $return);
 
 
 $files = glob("C:/ocr/engine_results/*.txt");
