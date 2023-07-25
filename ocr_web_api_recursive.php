@@ -1,9 +1,9 @@
 <?php
-exit("=-098");
 set_time_limit(0); 
-require_once('C:/ocr/SFTP/vendor/autoload.php');
+//require_once('C:/ocr/SFTP/vendor/autoload.php');
+require_once('\\var\\www\\html\\ocr\\SFTP\\vendor\\autoload.php');
 use phpseclib\Net\SFTP;
-
+exit("=-098");
 
 $remote_host ='23.122.104.252';//lrwic.com   New IP
 $remote_port ='2222';
