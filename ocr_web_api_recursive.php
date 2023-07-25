@@ -3,10 +3,11 @@ set_time_limit(0);
 //require_once('C:/ocr/SFTP/vendor/autoload.php');
 require_once('/var/www/html/ocr/SFTP/vendor/autoload.php');
 use phpseclib\Net\SFTP;
-exit("=-098");
 
-$remote_host ='23.122.104.252';//lrwic.com   New IP
-$remote_port ='2222';
+
+//$remote_host ='23.122.104.252';//lrwic.com   New IP
+$remote_host ='192.168.1.120';//lrwic.com   New IP
+$remote_port ='22';
 
 $login='lrwic';
 $password='the_proxyFTP';
@@ -24,7 +25,8 @@ else{
 $pathname ='/var/www/html/public_html/faxFiles/facility_21';
 
 $files = $sftp->nlist($pathname);
-
+print_r($files):
+exit("=-098");
 foreach ($files as $file) {
 			  
 	if (substr($file, 0, 1) == '.') continue;
