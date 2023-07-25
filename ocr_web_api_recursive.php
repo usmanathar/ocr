@@ -1,7 +1,7 @@
 <?php
 set_time_limit(0); 
 //require_once('C:/ocr/SFTP/vendor/autoload.php');
-require_once('\\var\\www\\html\\ocr\\SFTP\\vendor\\autoload.php');
+require_once('/var/www/html/ocr/SFTP/vendor/autoload.php');
 use phpseclib\Net\SFTP;
 exit("=-098");
 
