@@ -3,7 +3,7 @@ set_time_limit(0);
 //require_once('C:/ocr/SFTP/vendor/autoload.php');
 require_once('/var/www/html/ocr/SFTP/vendor/autoload.php');
 use phpseclib\Net\SFTP;
-
+exit("=-0-=");
 
 $remote_host ='23.122.104.252';//lrwic.com   New IP
 //$remote_host ='192.168.1.120';//lrwic.com   New IP
