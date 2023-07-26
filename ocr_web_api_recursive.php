@@ -1,5 +1,6 @@
 <?php
-set_time_limit(0); exit("=-0-=");
+//exit("=-0-=");
+set_time_limit(0); 
 //require_once('C:/ocr/SFTP/vendor/autoload.php');
 require_once('/var/www/html/ocr/SFTP/vendor/autoload.php');
 
@@ -26,7 +27,7 @@ else{
 $pathname ='/var/www/html/public_html/faxFiles/facility_21';
 
 $files = $sftp->nlist($pathname);
-print_r($files):
+print_r($files);
 exit("=-098");
 foreach ($files as $file) {
 			  
