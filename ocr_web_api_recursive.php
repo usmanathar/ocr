@@ -9,8 +9,8 @@ use phpseclib\Net\SFTP;
 $remote_host ='192.168.1.120';//lrwic.com   New IP
 $remote_port ='22';
 
-$login='lrwic';
-$password='the_proxyFTP';
+$login='ocr_lrwic';
+$password='the_proxy@OCR';
 
 
 $sftp = new SFTP($remote_host, $remote_port);
