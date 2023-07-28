@@ -1,2 +1,2 @@
-#!/usr/bin/bash
+#!/bin/bash
 sftp ocr_lrwic@OCR
