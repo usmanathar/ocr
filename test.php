@@ -1,6 +1,6 @@
 <?php
 
-exec('sftp ocr_lrwic@23.122.104.252'):
+exec('sftp ocr_lrwic@23.122.104.252');
      /*include 'SFTP/vendor/autoload.php';
  
      $sftp = new \phpseclib\Net\SFTP('23.122.104.252');
