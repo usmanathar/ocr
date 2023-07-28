@@ -12,6 +12,8 @@ $password='the_proxy@OCR';
 
 
 $sftp = new SFTP($remote_host, $remote_port);
+
+echo "REMOTE_HOST::".$remote_host." REMOTE_PORT::".$remote_port;
 		  
 if (!$sftp->login($login, $password)) {		  			
 	echo 'Login to remote host'.$remote_host. 'failed';
@@ -80,7 +82,7 @@ $wdir = "C:\\Users\\EZ-ocr\\Desktop\\Image Decoder";
 chdir($wdir);
 // exec('java -jar app-assembly-1.0-SNAPSHOT.jar covermymeds C:/ocr/fax_documents C:\ocr\engine_results', $output, $return);
 //exec('java -jar app-assembly-1.0-SNAPSHOT.jar covermymeds C:/ocr/fax_documents C:\ocr\engine_results', $output, $return);
-
+exec():
 
 $files = glob("C:/ocr/engine_results/*.txt");
 if (count($files) > 0) {
