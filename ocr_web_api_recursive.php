@@ -13,7 +13,7 @@ $password='the_proxy@OCR';
 
 $sftp = new SFTP($remote_host, $remote_port);
 
-echo "REMOTE_HOST::".$remote_host." REMOTE_PORT::".$remote_port;
+//echo "REMOTE_HOST::".$remote_host." REMOTE_PORT::".$remote_port;
 		  
 if (!$sftp->login($login, $password)) {		  			
 	echo 'Login to remote host'.$remote_host. 'failed';
