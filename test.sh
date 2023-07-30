@@ -13,14 +13,8 @@ fi
 
 #I am root
 search_dir=/var/www/html/ocr/fax_documents
-#FILES = $(ls *.pdf)
-#echo "files are as follows:: {$FILES}"
-OUTPUT=$(ls -1)
-echo "${OUTPUT}"
-
-MULTILINE=$(ls \
-   -1)
-echo "${MULTILINE}"
+FILES = $(ls *.pdf)
+echo "files are as follows:: ${FILES}"
 
 for entry in "$search_dir"/*.pdf
 do
