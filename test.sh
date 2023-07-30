@@ -1,4 +1,5 @@
 #!/bin/sh
+echo "In test script"
 #check for root
 UID=$(id -u)
 if [ x$UID != x0 ] 
