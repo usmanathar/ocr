@@ -82,7 +82,7 @@ array_map( 'unlink', array_filter((array) glob("$resultPath/*") ) );//good worki
 
 $pdf_files = glob("/var/www/html/ocr/fax_documents/*.pdf");
 print_r($pdf_files);
-foreach($file in $pdf_files)
+foreach($file as $pdf_files)
 	exec('convert -density 300 $file -depth 8 -strip -background white -alpha off $file.tiff');
 exit("=-0-=");
 //$wdir = "C:\\Users\\EZ-ocr\\Desktop\\Image Decoder";
