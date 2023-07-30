@@ -15,7 +15,8 @@ fi
 search_dir=/var/www/html/ocr/fax_documents
 for entry in "$search_dir"/*.pdf
 do
-  echo "$entry"
+  #echo "$entry"
+  convert -density 300 $entry -depth 8 -strip -background white -alpha off 1.tiff
 done
 #mkdir /opt/D3GO/
 #and the rest of your commands
