@@ -12,6 +12,10 @@ then
 fi
 
 #I am root
-
+search_dir=/var/www/html/ocr/fax_documents
+for entry in "$search_dir"/*
+do
+  echo "$entry"
+done
 #mkdir /opt/D3GO/
 #and the rest of your commands
