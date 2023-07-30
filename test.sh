@@ -13,8 +13,8 @@ fi
 
 #I am root
 search_dir=/var/www/html/ocr/fax_documents
-FILES = $(ls *.pdf)
-echo "${FILES}"
+OUTPUT = $(ls *.pdf)
+echo "${OUTPUT}"
 for entry in "$search_dir"/*.pdf
 do
   #echo "$entry"
