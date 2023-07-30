@@ -80,7 +80,7 @@ $resultPath = '\var\www\html\ocr\engine_results';
 
 array_map( 'unlink', array_filter((array) glob("$resultPath/*") ) );//good working
 
-$pdf_files = glob("\var\www\html\ocr\pdf_documents\*.pdf");
+$pdf_files = glob("\var\www\html\ocr\fax_documents\*.pdf");
 print_r($pdf_files);
 exit("=-0-=");
 //$wdir = "C:\\Users\\EZ-ocr\\Desktop\\Image Decoder";
