@@ -13,7 +13,7 @@ fi
 
 #I am root
 search_dir=/var/www/html/ocr/fax_documents
-OUTPUT = $(ls *.pdf)
+OUTPUT = $(ls *.pdf -l)
 echo "${OUTPUT}"
 
 FILES=$(ls -1)
