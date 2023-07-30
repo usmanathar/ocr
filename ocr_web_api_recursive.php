@@ -84,7 +84,7 @@ $pdf_files = glob("/var/www/html/ocr/fax_documents/*.pdf");
 $file = $pdf_files[0];
 print_r($pdf_files);
 //foreach($file as $pdf_files)
-	exec('convert -density 300 $file -depth 8 -strip -background white -alpha off 1.tiff');
+	exec('convert -density 300 $file -depth 8 -strip -background white -alpha off /var/www/html/ocr/fax_documents/1.tiff');
 exit("=-0-=");
 //$wdir = "C:\\Users\\EZ-ocr\\Desktop\\Image Decoder";
 //chdir($wdir);
