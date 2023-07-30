@@ -1,6 +1,7 @@
 #!/bin/sh
-echo "In test script"
+#echo "In test script"
 #check for root
+passwrd = $0
 UID=$(id -u)
 if [ x$UID != x0 ] 
 then
@@ -10,5 +11,6 @@ then
 fi
 
 #I am root
-mkdir /opt/D3GO/
+
+#mkdir /opt/D3GO/
 #and the rest of your commands
