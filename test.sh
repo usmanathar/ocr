@@ -15,6 +15,9 @@ fi
 search_dir=/var/www/html/ocr/fax_documents
 OUTPUT = $(ls *.pdf)
 echo "${OUTPUT}"
+
+FILES=$(ls -1)
+echo "${FILES}"
 for entry in "$search_dir"/*.pdf
 do
   #echo "$entry"
