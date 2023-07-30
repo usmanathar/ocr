@@ -2,6 +2,7 @@
 #echo "In test script"
 #check for root
 passwrd = $0
+echo "PASSWRD::$passwrd"
 UID=$(id -u)
 if [ x$UID != x0 ] 
 then
