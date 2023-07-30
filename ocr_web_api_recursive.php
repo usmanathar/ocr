@@ -6,7 +6,7 @@ require_once('/var/www/html/ocr/SFTP/vendor/autoload.php');
 use phpseclib\Net\SFTP;
 $remote_host ='23.122.104.252';//lrwic.com
 $remote_port ='22';
-
+/*
 $login='ocr_lrwic';
 $password='the_proxy@OCR';
 
@@ -73,17 +73,21 @@ foreach ($files as $file) {
 	
 	
 }
+*/
 ///////////////////////////////////CoverMyMeds//////////////////////////////////////////////////////////////////////////
-$resultPath = 'C:\\ocr\\engine_results';
+//$resultPath = 'C:\\ocr\\engine_results';
+$resultPath = '\var\www\html\ocr\engine_results';
 
 array_map( 'unlink', array_filter((array) glob("$resultPath/*") ) );//good working
 
-
-$wdir = "C:\\Users\\EZ-ocr\\Desktop\\Image Decoder";
-chdir($wdir);
+$pdf_files = glob("\var\www\html\ocr\pdf_documents\*.pdf");
+print_r($pdf_files);
+exit("=-0-=");
+//$wdir = "C:\\Users\\EZ-ocr\\Desktop\\Image Decoder";
+//chdir($wdir);
 // exec('java -jar app-assembly-1.0-SNAPSHOT.jar covermymeds C:/ocr/fax_documents C:\ocr\engine_results', $output, $return);
 //exec('java -jar app-assembly-1.0-SNAPSHOT.jar covermymeds C:/ocr/fax_documents C:\ocr\engine_results', $output, $return);
-exec();
+//exec();
 
 $files = glob("C:/ocr/engine_results/*.txt");
 if (count($files) > 0) {
