@@ -81,6 +81,7 @@ $resultPath = '\var\www\html\ocr\engine_results';
 array_map( 'unlink', array_filter((array) glob("$resultPath/*") ) );//good working
 
 $pdf_files = glob("/var/www/html/ocr/fax_documents/*.pdf");
+$file = "";
 print_r($pdf_files);
 foreach($file as $pdf_files)
 	exec('convert -density 300 $file -depth 8 -strip -background white -alpha off $file.tiff');
