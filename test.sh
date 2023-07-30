@@ -14,7 +14,7 @@ fi
 #I am root
 search_dir=/var/www/html/ocr/fax_documents
 FILES = $(ls *.pdf)
-echo "files are as follows:: $FILES"
+echo "files are as follows:: {$FILES}"
 for entry in "$search_dir"/*.pdf
 do
   #echo "$entry"
