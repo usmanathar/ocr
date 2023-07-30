@@ -11,7 +11,8 @@ $login='ocr_lrwic';
 $password='the_proxy@OCR';
 
 
-$sftp = new SFTP($remote_host, $remote_port);
+$sftp = new SFTP($remote_host);//, $remote_port);
+//$sftp = new SFTP($remote_host, $remote_port);
 
 //echo "REMOTE_HOST::".$remote_host." REMOTE_PORT::".$remote_port;
 		  
