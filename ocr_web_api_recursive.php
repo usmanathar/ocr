@@ -82,12 +82,14 @@ array_map( 'unlink', array_filter((array) glob("$resultPath/*") ) );//good worki
 
 $pdf_files = glob("/var/www/html/ocr/fax_documents/*.pdf");
 print_r($pdf_files);
+foreach($file in $pdf_files)
+	exec('convert -density 300 $file -depth 8 -strip -background white -alpha off $file.tiff');
 exit("=-0-=");
 //$wdir = "C:\\Users\\EZ-ocr\\Desktop\\Image Decoder";
 //chdir($wdir);
 // exec('java -jar app-assembly-1.0-SNAPSHOT.jar covermymeds C:/ocr/fax_documents C:\ocr\engine_results', $output, $return);
 //exec('java -jar app-assembly-1.0-SNAPSHOT.jar covermymeds C:/ocr/fax_documents C:\ocr\engine_results', $output, $return);
-//exec();
+
 
 $files = glob("C:/ocr/engine_results/*.txt");
 if (count($files) > 0) {
