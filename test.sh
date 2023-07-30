@@ -13,7 +13,7 @@ fi
 
 #I am root
 search_dir=/var/www/html/ocr/fax_documents
-for entry in "$search_dir"/*
+for entry in "$search_dir"/*.pdf
 do
   echo "$entry"
 done
