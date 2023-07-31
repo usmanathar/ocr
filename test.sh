@@ -21,8 +21,8 @@ do
   echo "${SUBSTRING}"
   file_name=$(echo $SUBSTRING| cut -d'/' -f 7)
   echo "${file_name}"
-  #convert -density 300 $SUBSTRING.pdf -depth 8 -strip -background white -alpha off $SUBSTRING.tiff
-  #tesseract 1.tiff - -l eng txt
+  convert -density 300 $SUBSTRING.pdf -depth 8 -strip -background white -alpha off /var/www/html/ocr/engine_results/$file_name.tiff
+  tesseract /var/www/html/ocr/engine_results/$file_name.tiff - -l eng txt
 done
 #mkdir /opt/D3GO/
 #and the rest of your commands
