@@ -18,6 +18,7 @@ echo "${OUTPUT}"
 
 FILES=$(ls -1)
 echo "${FILES}"
+
 for entry in "$search_dir"/*.pdf
 do
   #echo "$entry"
