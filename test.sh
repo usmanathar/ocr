@@ -14,10 +14,12 @@ fi
 #I am root
 search_dir=/var/www/html/ocr/fax_documents
 OUTPUT=$(ls -l)
+echo "==================="
 echo "${OUTPUT}"
-
+echo "==========||||||||========="
 FILES=$(ls -1)
 echo "${FILES}"
+echo "==========||||||||========="
 
 for entry in "$search_dir"/*.pdf
 do
