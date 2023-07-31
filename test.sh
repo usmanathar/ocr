@@ -19,7 +19,10 @@ do
   SUBSTRING=$(echo $entry| cut -d'.' -f 1)
   echo "$entry"
   echo "${SUBSTRING}"
-  convert -density 300 $SUBSTRING.pdf -depth 8 -strip -background white -alpha off $SUBSTRING.tiff
+  file_name=$(echo $SUBSTRING| cut -d'/' -f 5)
+  echo "${file_name}"
+  #convert -density 300 $SUBSTRING.pdf -depth 8 -strip -background white -alpha off $SUBSTRING.tiff
+  #tesseract 1.tiff - -l eng txt
 done
 #mkdir /opt/D3GO/
 #and the rest of your commands
