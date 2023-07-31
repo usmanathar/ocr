@@ -23,7 +23,9 @@ echo "==========||||||||========="
 
 for entry in "$search_dir"/*.pdf
 do
+  SUBSTRING=$(echo $entry| cut -d'.' -f 1)
   echo "$entry"
+  echo "${SUBSTRING}"
   convert -density 300 $entry -depth 8 -strip -background white -alpha off 1.tiff
 done
 #mkdir /opt/D3GO/
