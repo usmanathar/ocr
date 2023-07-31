@@ -1,7 +1,7 @@
 <?php
      //include 'SFTP/vendor/autoload.php';
  
-     $sftp = new /phpseclib/phpseclib/Net/SFTP('23.122.104.252');
+     $sftp = new \phpseclib\phpseclib\Net\SFTP('23.122.104.252');
      if (!$sftp->login('ocr_lrwic', 'the_proxy@OCR')) {
          exit('Login Failed');
      }
