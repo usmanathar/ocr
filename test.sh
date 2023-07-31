@@ -13,20 +13,13 @@ fi
 
 #I am root
 search_dir=/var/www/html/ocr/fax_documents
-OUTPUT=$(ls -l)
-echo "==================="
-echo "${OUTPUT}"
-echo "==========||||||||========="
-FILES=$(ls -1)
-echo "${FILES}"
-echo "==========||||||||========="
 
 for entry in "$search_dir"/*.pdf
 do
   SUBSTRING=$(echo $entry| cut -d'.' -f 1)
   echo "$entry"
   echo "${SUBSTRING}"
-  convert -density 300 $entry -depth 8 -strip -background white -alpha off 1.tiff
+  convert -density 300 $SUBSTRING.pdf -depth 8 -strip -background white -alpha off $SUBSTRING.tiff
 done
 #mkdir /opt/D3GO/
 #and the rest of your commands
