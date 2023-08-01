@@ -1,7 +1,7 @@
 <?php
 set_time_limit(0); 
 //require_once('C:/ocr/SFTP/vendor/autoload.php');
-require_once('/var/www/html/ocr/SFTP/vendor/autoload.php');
+/*require_once('/var/www/html/ocr/SFTP/vendor/autoload.php');
 
 use phpseclib\Net\SFTP;
 $remote_host ='23.122.104.252';//lrwic.com
@@ -85,7 +85,11 @@ chdir($wdir);
 //exec('java -jar app-assembly-1.0-SNAPSHOT.jar covermymeds C:/ocr/fax_documents C:\ocr\engine_results', $output, $return);
 exec();
 
-$files = glob("C:/ocr/engine_results/*.txt");
+//$files = glob("C:/ocr/engine_results/*.txt");
+*/
+$files = glob("/var/www/html/ocr/engine_results/*.txt");
+print_r($files);
+exit("=-0-=");
 if (count($files) > 0) {
 	
 	$i = 0;
