@@ -12,7 +12,7 @@ then
 fi
 
 #I am root
-search_dir=/var/www/html/ocr/fax_documents
+search_dir=/var/www/html/ocr/fax_documents_live
 
 for entry in "$search_dir"/*.pdf
 do
