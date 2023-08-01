@@ -88,8 +88,8 @@ exec();
 //$files = glob("C:/ocr/engine_results/*.txt");
 */
 $files = glob("/var/www/html/ocr/engine_results/*.txt");
-print_r($files);
-exit("=-0-=");
+//print_r($files);
+//exit("=-0-=");
 if (count($files) > 0) {
 	
 	$i = 0;
@@ -108,7 +108,9 @@ function process_covermymeds($afiles, $i)
 	
 	$pdfFileName = pathinfo($file, PATHINFO_FILENAME);
 	
-	$pdfFile = "C:/ocr/fax_documents/".$pdfFileName.""; 
+	//$pdfFile = "C:/ocr/fax_documents/".$pdfFileName.""; 
+	//$pdfFile = "/var/www//html/ocr/fax_documents/".$pdfFileName."";
+	$pdfFile = "/var/www//html/ocr/fax_documents_live/".$pdfFileName.""; //temporirly before fix of SFTP
 	$file_name_with_full_path = realpath("$file");
 	
 	////////////////////////////////////////////////////////////////////////////////////
@@ -116,6 +118,8 @@ function process_covermymeds($afiles, $i)
 	$filenames = array("$file_name_with_full_path");
 	$reportContents = file_get_contents($file_name_with_full_path);
 	
+	print_r($reportContents);
+	exit("=-0");
 	////////////////////////////////////////////////////////////////////////////////////////
 	
 	
@@ -200,7 +204,7 @@ function process_covermymeds($afiles, $i)
 }
 
 
-$files_folder = "C:/ocr/fax_documents";
+//$files_folder = "C:/ocr/fax_documents";
 
 
 $ocrLabs = array("AmericanEsotericLabs","NexusLabs","BaptistHealthMedical","RadiologyAssociatesPA");
