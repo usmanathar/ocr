@@ -135,145 +135,7 @@ function process_covermymeds($afiles, $i)
 		
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////
-	
-	
-	$reportData = '';
-	switch($configName){
-						
-			case "CoverMyMedsPA":
-				
-				$reportData = CoverMyMedsPAHandler(basename($pdfFile),$reportContents,'CoverMyMedsPA',$email_addr);
-			break;	
-			
-	}
-	
-	if(!empty($reportData) && $configName == 'CoverMyMedsPA'){
-		
-		
-		upload_fax_pdf($end_point_url, $email_addr, $pdfFile);
-	
-		/*print "<pre>";
-		print_r($reportData);
-		print "</pre>";*/
-		
-		$json_string = json_encode($reportData);
-		$ch = curl_init();
-					
-		curl_setopt($ch, CURLOPT_URL, $end_point_url); //local
-		
-		//curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20);
-		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-		curl_setopt($ch, CURLOPT_POST, true);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $json_string);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);   
-		//curl_setopt($ch, CURLOPT_USERPWD, $api_key.':'.$password);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-		//curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC); 
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-		
-		
-		$result = curl_exec($ch);
-		curl_close($ch);
-		
-		
-		if (file_exists($pdfFile)) {
-			unlink($pdfFile);
-			
-		}
-	}
-	else{
-		echo "Not recognized by script.<br>";	
-	}
-	
-	if (file_exists($file)) {
-	    unlink($file);
-	    
-	} else {
-	    // File not found.
-	}	
-	
-	unset($afiles[$i]);
-	if (count($afiles) > 0) {
-		//echo "allfiles <pre>"; print_r($afiles);
-		$i++;
-		process_covermymeds($afiles, $i);
-	}
-}	//End of process_covermymeds
-
-
-//$files_folder = "C:/ocr/fax_documents";
-
-
-$ocrLabs = array("AmericanEsotericLabs","NexusLabs","BaptistHealthMedical","RadiologyAssociatesPA");
-if (count($files) > 0) {
-	
-	$i = 0;
-	processFaxFiles($files, $i, $ocrLabs);    
-}
-
-//////////////////////////////////////////////////////////////////
-
-function processFaxFiles($afiles, $i, $ocrLabs){
-	$file = $afiles[$i];
-	echo basename($file)."<br>";
-	$email_addr = 'support@faxage.com';
-	
-	$end_point_url = 'https://lrwic.com/beta/api/Pdf_decoder';
-	
-	
-	$file_name_with_full_path = realpath("$file");
-	
-	////////////////////////////////////////////////////////////////////////////////////
-	//$filenames = array("/tmp/1.jpg", "/tmp/2.png");
-	$filenames = array("$file_name_with_full_path");
-	
-	$files = array();
-	foreach ($filenames as $f){
-	   $files[$f] = file_get_contents($f);
-	}
-	
-	$url = "http://localhost:8100/api/v1/upload-simple";
-	
-	
-	
-	$defaultOptions = array("ocrLang" =>"eng","ipf" =>"xs6e7925");
-	$coverMyMedOptions = array("ocrLang" =>"eng","ipf" =>"none");
-	$rapaOptions = array("ocrLang" =>"rapa","ipf" =>"xs6e7995");
-	$conwayOptions = array("ocrLang" =>"eng","ipf" =>"all");
-	/////////////////////////////////////////////////////////////////////////////////
-	$fields = array("ocrOptions"=>json_encode( $defaultOptions ));
-	$url_data = http_build_query($fields);		
-	$boundary = uniqid();
-	$delimiter = '-------------' . $boundary;	
-	$post_data = build_data_files($boundary, $fields, $files);
-	//print "<pre>";print_r($post_data);	
-	$defaultContents = get_report_contents($url,$post_data,$delimiter);
-	////////////////////////////////////////////////////////////////////////////////////
-	$fields = array("ocrOptions"=>json_encode( $rapaOptions ));	
-	$url_data = http_build_query($fields);		
-	$boundary = uniqid();
-	$delimiter = '-------------' . $boundary;	
-	$post_data = build_data_files($boundary, $fields, $files);
-	//print "<pre>";print_r($post_data);	
-	$rapaContents = get_report_contents($url,$post_data,$delimiter);
-	////////////////////////////////////////////////////////////////////////////////////////
-	$fields = array("ocrOptions"=>json_encode( $conwayOptions ));	
-	$url_data = http_build_query($fields);		
-	$boundary = uniqid();
-	$delimiter = '-------------' . $boundary;	
-	$post_data = build_data_files($boundary, $fields, $files);
-	//print "<pre>";print_r($post_data);	
-	$conwayContents = get_report_contents($url,$post_data,$delimiter);
-	////////////////////////////////////////////////////////////////////////////////////////
-	$fields = array("ocrOptions"=>json_encode( $coverMyMedOptions ));
-	$url_data = http_build_query($fields);		
-	$boundary = uniqid();
-	$delimiter = '-------------' . $boundary;	
-	$post_data = build_data_files($boundary, $fields, $files);
-	//print "<pre>";print_r($post_data);	
-	$coverMyMedContents = get_report_contents($url,$post_data,$delimiter);
-	////////////////////////////////////////////////////////////////////////////////////////
-	
+	///-----------Start of Labs search------------------------
 	$isRAPA = 0;				
 	$configName = '';
 	$faxType = '';
@@ -722,7 +584,598 @@ function processFaxFiles($afiles, $i, $ocrLabs){
 		echo "<br>Matched:CoverMyMedsPA, break. <br>";
 		
 	}
+	//-----------------End of Lab search
 	
+	
+	///////////////////////////////////////////////////////////////////////////////////////////
+	
+	
+	$reportData = '';
+	switch($configName){
+						
+			case "CoverMyMedsPA":
+				
+				$reportData = CoverMyMedsPAHandler(basename($pdfFile),$reportContents,'CoverMyMedsPA',$email_addr);
+			break;	
+			
+	}
+	
+	if(!empty($reportData) && $configName == 'CoverMyMedsPA'){
+		
+		
+		upload_fax_pdf($end_point_url, $email_addr, $pdfFile);
+	
+		/*print "<pre>";
+		print_r($reportData);
+		print "</pre>";*/
+		
+		$json_string = json_encode($reportData);
+		$ch = curl_init();
+					
+		curl_setopt($ch, CURLOPT_URL, $end_point_url); //local
+		
+		//curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+		curl_setopt($ch, CURLOPT_POST, true);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $json_string);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);   
+		//curl_setopt($ch, CURLOPT_USERPWD, $api_key.':'.$password);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		//curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC); 
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+		
+		
+		$result = curl_exec($ch);
+		curl_close($ch);
+		
+		
+		if (file_exists($pdfFile)) {
+			unlink($pdfFile);
+			
+		}
+	}
+	else{
+		echo "Not recognized by script.<br>";	
+	}
+	
+	if (file_exists($file)) {
+	    unlink($file);
+	    
+	} else {
+	    // File not found.
+	}	
+	
+	unset($afiles[$i]);
+	if (count($afiles) > 0) {
+		//echo "allfiles <pre>"; print_r($afiles);
+		$i++;
+		process_covermymeds($afiles, $i);
+	}
+}	//End of process_covermymeds
+
+
+//$files_folder = "C:/ocr/fax_documents";
+
+
+$ocrLabs = array("AmericanEsotericLabs","NexusLabs","BaptistHealthMedical","RadiologyAssociatesPA");
+if (count($files) > 0) {
+	
+	$i = 0;
+	processFaxFiles($files, $i, $ocrLabs);    
+}
+
+//////////////////////////////////////////////////////////////////
+
+function processFaxFiles($afiles, $i, $ocrLabs){
+	$file = $afiles[$i];
+	echo basename($file)."<br>";
+	$email_addr = 'support@faxage.com';
+	
+	$end_point_url = 'https://lrwic.com/beta/api/Pdf_decoder';
+	
+	
+	$file_name_with_full_path = realpath("$file");
+	
+	////////////////////////////////////////////////////////////////////////////////////
+	//$filenames = array("/tmp/1.jpg", "/tmp/2.png");
+	$filenames = array("$file_name_with_full_path");
+	
+	$files = array();
+	foreach ($filenames as $f){
+	   $files[$f] = file_get_contents($f);
+	}
+	
+	$url = "http://localhost:8100/api/v1/upload-simple";
+	
+	
+	
+	$defaultOptions = array("ocrLang" =>"eng","ipf" =>"xs6e7925");
+	$coverMyMedOptions = array("ocrLang" =>"eng","ipf" =>"none");
+	$rapaOptions = array("ocrLang" =>"rapa","ipf" =>"xs6e7995");
+	$conwayOptions = array("ocrLang" =>"eng","ipf" =>"all");
+	/////////////////////////////////////////////////////////////////////////////////
+	$fields = array("ocrOptions"=>json_encode( $defaultOptions ));
+	$url_data = http_build_query($fields);		
+	$boundary = uniqid();
+	$delimiter = '-------------' . $boundary;	
+	$post_data = build_data_files($boundary, $fields, $files);
+	//print "<pre>";print_r($post_data);	
+	$defaultContents = get_report_contents($url,$post_data,$delimiter);
+	////////////////////////////////////////////////////////////////////////////////////
+	$fields = array("ocrOptions"=>json_encode( $rapaOptions ));	
+	$url_data = http_build_query($fields);		
+	$boundary = uniqid();
+	$delimiter = '-------------' . $boundary;	
+	$post_data = build_data_files($boundary, $fields, $files);
+	//print "<pre>";print_r($post_data);	
+	$rapaContents = get_report_contents($url,$post_data,$delimiter);
+	////////////////////////////////////////////////////////////////////////////////////////
+	$fields = array("ocrOptions"=>json_encode( $conwayOptions ));	
+	$url_data = http_build_query($fields);		
+	$boundary = uniqid();
+	$delimiter = '-------------' . $boundary;	
+	$post_data = build_data_files($boundary, $fields, $files);
+	//print "<pre>";print_r($post_data);	
+	$conwayContents = get_report_contents($url,$post_data,$delimiter);
+	////////////////////////////////////////////////////////////////////////////////////////
+	$fields = array("ocrOptions"=>json_encode( $coverMyMedOptions ));
+	$url_data = http_build_query($fields);		
+	$boundary = uniqid();
+	$delimiter = '-------------' . $boundary;	
+	$post_data = build_data_files($boundary, $fields, $files);
+	//print "<pre>";print_r($post_data);	
+	$coverMyMedContents = get_report_contents($url,$post_data,$delimiter);
+	////////////////////////////////////////////////////////////////////////////////////////
+	///-----------Start of Labs search------------------------
+	$isRAPA = 0;				
+	$configName = '';
+	$faxType = '';
+	$faxCategory = '';
+	$reportContents = $defaultContents;
+	////////////////////////////////////////////////////////////////////////////////////////
+	//AmericanEsotericLabs NexusLabs BaptistHealthMedical RadiologyAssociatesPA		
+	$strPos = stripos($defaultContents,'AMERICAN ESOTERIC LABORATORIES');
+	$strPos1 = stripos($defaultContents,'AMERICAN ESOTERIC LABORATGRIES');
+	$strPos2 = stripos($defaultContents,'American Esoleric Laboratories');
+	//$strPos = stripos($reportContents,'AEL');
+	if($strPos !== false || $strPos1 !== false || $strPos2 !== false){
+		$configName = 'AmericanEsotericLabs';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:AmericanEsotericLabs, break. <br>";
+		
+	}
+	$strPos1 = $strPos2 ='';
+	
+	
+	// input misspelled word
+	$input = 'CONWAY REGIONAL CLINICAL LABORATORIES';
+	
+	
+	$strPos1 = stripos($conwayContents,'CONWAY REGIONAL CLINICAL LABORATORIES');
+	$strPos2 = stripos($conwayContents,'CONWAY REGIONAL CLINICAL');
+	$strPos3 = stripos($conwayContents,'CONWAY REGIONAL');
+	$strPos4 = stripos($conwayContents,'CONWAY REGIONAL HEALTH SYSTEM');//MR Smart Route => Medical Record
+	if($strPos1 !== false || $strPos2 !== false || $strPos3 !== false){
+		$configName = 'NexusLabs';
+		$reportContents = $conwayContents;
+		//echo "<br>Matched:NexusLabs, break. <br>";	
+		
+	}
+	
+	$strPos1 = stripos($conwayContents,'DARDANELLE REGIONAL CLINICAL LABORATORIES');
+	$strPos2 = stripos($conwayContents,'DARDANELLE REGIONAL CLINICAL');
+	$strPos3 = stripos($conwayContents,'DAEDANELLE REGIONAL CLINICAL');
+	$strPos4 = stripos($conwayContents,'DARDANELLE REGIONAL');
+	if($strPos1 !== false || $strPos2 !== false || $strPos3 !== false || $strPos4 !== false){
+		$configName = 'DardanelleLabs';
+		$reportContents = $conwayContents;
+		//echo "<br>Matched:NexusLabs, break. <br>";	
+		
+	}
+	
+	//Catapult Health
+	$strPos1 = stripos($conwayContents,'Catapult Health');	
+	if($strPos1 !== false){
+		$configName = 'catapultHealth';
+		$reportContents = $conwayContents;
+		//echo "<br>Matched:NexusLabs, break. <br>";	
+		
+	}
+	
+	$strPos1 = stripos($defaultContents,'CONWAY REGIONAL HEALTH SYSTEM');
+	$strPos2 = stripos($defaultContents,'Imaging Services');	
+	if($strPos1 !== false && $strPos2 !== false){
+		$configName = 'conwayRad';
+		$reportContents = $defaultContents;
+		//echo "<br>Matched:conwayRad, break. <br>";		
+	}
+	
+	$strPos1 = stripos($rapaContents,'Radiology Associates');
+	$strPos2 = stripos($rapaContents,'RADIOLOGY REPORT');
+	
+	//if(($strPos1 !== false || $strPos2 !== false) && $ocrLang == "rapa" && $ipf=="none")
+	if($strPos1 !== false || $strPos2 !== false)
+	{
+		$configName = 'RadiologyAssociatesPA';
+		$reportContents = $rapaContents;
+		echo "<br>Matched:RadiologyAssociatesPA, break. <br>";
+		
+	}
+	
+	$strPos = stripos($defaultContents,'Quest Diagnostics');
+	if($strPos !== false){
+		$configName = 'questDiagnostics';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:questDiagnostics, break. <br>";
+		
+	}
+	$strPos1 = stripos($defaultContents,'Quest Diagnostics');//PERFORMING SITE:
+	$strPos2 = stripos($defaultContents,'Patient Information');
+	$strPos3 = stripos($defaultContents,'Specimen Information');
+	$strPos4 = stripos($defaultContents,'Client Information');
+	if($strPos1 !== false && $strPos2 !== false && $strPos3 !== false && $strPos4 !== false){
+		$configName = 'questDiagnostics';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:questDiagnostics, break. <br>";
+	}
+	
+	
+	$strPos = stripos($defaultContents,'Walgreens');
+	if($strPos !== false){
+		$configName = 'walgreensPharmacy';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:walgreensPharmacy, break. <br>";
+		
+	}
+	
+	
+	$strPos1 = stripos($defaultContents,'cvs/pharmacy');
+	$strPos2 = stripos($defaultContents,'CVS PHARMACY');
+	$strPos3 = stripos($defaultContents,'CVS Caremark');
+	if($strPos1 !== false || $strPos2 !== false || $strPos3 !== false){
+		$configName = 'cvsPharmacy';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:cvsPharmacy, break. <br>";
+		
+	}
+	
+	//Wal-Mart Pharmacy
+	$strPos = stripos($defaultContents,'Walmart Pharmacy');
+	if($strPos !== false || stripos($defaultContents,'Wal-Mart Pharmacy') !== false){
+		$configName = 'walmartPharmacy';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:walmartPharmacy, break. <br>";
+		
+	}
+	
+	
+	$strPos = stripos($defaultContents,'THE PHARMACY AT WELLINGTON');
+	if($strPos !== false){
+		$configName = 'wellingtonPharmacy';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:wellingtonPharmacy, break. <br>";
+		
+	}
+	
+	$strPos = stripos($defaultContents,'THE PHARMACY AT WELLINGTON');
+	if($strPos !== false){
+		$configName = 'wellingtonPharmacy';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:wellingtonPharmacy, break. <br>";
+		
+	}
+	
+	$strPos = stripos($defaultContents,'DAILY DOSE DRUGSTORE');
+	if($strPos !== false){
+		$configName = 'dailyDoseDrugStore';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:dailyDoseDrugStore, break. <br>";
+		
+	}
+	
+	$strPos = stripos($defaultContents,'RISON PHARMACY');
+	if($strPos !== false){
+		$configName = 'risonPharmacy';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:risonPharmacy, break. <br>";
+		
+	}
+	
+	$strPos = stripos($defaultContents,'WATSON PHARMACY');
+	if($strPos !== false){
+		$configName = 'watsonPharmacy';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:watsonPharmacy, break. <br>";
+		
+	}
+	//CORNERSTONE PHARMACY
+	$strPos = stripos($defaultContents,'CORNERSTONE PHARMACY');
+	if($strPos !== false || stripos($defaultContents,'CORNERSTONE') !== false ){
+		$configName = 'cornerstonePharmacy';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:cornerstonePharmacy, break. <br>";
+		
+	}
+	
+	//KROGER PHARMACY
+	$strPos1 = stripos($defaultContents,'KROGER PHARMACY');
+	$strPos2 = stripos($defaultContents,'KRQGER PHARMACY');
+	if($strPos1 !== false || $strPos2 !== false){
+		$configName = 'krogerPharmacy';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:krogerPharmacy, break. <br>";
+		
+	}
+	
+	
+	$strPos = stripos($defaultContents,'University of Arkansas for Medical Sciences');
+	if($strPos !== false){
+		$configName = 'uamsHospital';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:uamsHospital, break. <br>";
+		
+	}
+	//$strPos = stripos($defaultContents,'Express Rx on Cantrell');
+	if(stripos($defaultContents,'Express Rx') !== false || stripos($defaultContents,'Express Scripts')!== false){
+		$configName = 'expressRx';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:expressRx, break. <br>";
+		
+	}
+	
+	if(stripos($defaultContents,'Remedy Drug') !== false){
+		$configName = 'remedyDrug';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:remedyDrug, break. <br>";
+		
+	}
+	
+	if(stripos($defaultContents,'Drug Emporium') !== false){
+		$configName = 'drugEmporium';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:drugEmporium, break. <br>";
+		
+	}
+	if(stripos($defaultContents,'Smith Family Pharmacy') !== false){
+		$configName = 'smithPharmacy';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:smithPharmacy, break. <br>";
+		
+	}
+	if(stripos($defaultContents,'Smith Drug and Compounding') !== false){
+		$configName = 'smithDrug';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:smithDrug, break. <br>";
+		
+	}
+	
+	//THE PRESCRIPTION PAD PHARMACY
+	if(stripos($defaultContents,'THE PRESCRIPTION PAD PHARMACY') !== false){
+		$configName = 'prescPadPharmacy';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:prescPadPharmacy, break. <br>";
+		
+	}
+	
+	//BLANDFORD PHARMACY
+	if(stripos($defaultContents,'BLANDFORD PHARMACY') !== false){
+		$configName = 'blandfordPharmacy';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:blandfordPharmacy, break. <br>";
+		
+	}
+	
+	//SUPER 1 PHARMACY
+	if(stripos($defaultContents,'SUPER 1 PHARMACY') !== false){
+		$configName = 'super1Pharmacy';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:super1Pharmacy, break. <br>";
+		
+	}
+	//Eagle Pharmacy
+	if(stripos($defaultContents,'Eagle Pharmacy') !== false){
+		$configName = 'eaglePharmacy';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:eaglePharmacy, break. <br>";
+		
+	}
+	//Envolve Pharmacy
+	if(stripos($defaultContents,'Envolve Pharmacy') !== false){
+		$configName = 'envolvePharmacy';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:envolvePharmacy, break. <br>";
+		
+	}
+	//CARTI Hematology/Oncology
+	//if(stripos($defaultContents,'CARTI') !== false || stripos($defaultContents,'CARTI Hematology/Oncology') !== false){//creating issues with CARTI only word
+	if(stripos($defaultContents,'CARTI Hematology/Oncology') !== false){
+		$configName = 'cartiCenter';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:cartiCenter, break. <br>";
+		
+	}
+	//medicineManPharmacy
+	if(stripos($defaultContents,'Medicine Man Pharmacy') !== false){
+		$configName = 'medicineManPharmacy';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:medicineManPharmacy, break. <br>";
+		
+	}
+	//RHEA DRUG
+	if(stripos($defaultContents,'RHEA DRUG') !== false){
+		$configName = 'rheaDrug';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:rheaDrug, break. <br>";
+		
+	}
+	//freidericaPharmacy
+	if(stripos($defaultContents,'Freiderica Pharmacy') !== false){
+		$configName = 'freidericaPharmacy';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:freidericaPharmacy, break. <br>";
+		
+	}
+	
+	//THE	DRUG	STORE,	INC
+	if(stripos($defaultContents,'THE	DRUG	STORE') !== false || stripos($defaultContents,'THE DRUG STORE') !== false){
+		$configName = 'theDrugStore';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:theDrugStore, break. <br>";
+		
+	}
+	//donsPharmacy
+	if(stripos($defaultContents,"DON'S PHARMACY") !== false){
+		$configName = 'donsPharmacy';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:donsPharmacy, break. <br>";
+		
+	}
+
+	
+	//Burrows Pharmacy - Similar to wellington
+	if(stripos($defaultContents,"BURROW'S DRUG STORE") !== false){
+		$configName = 'burrowsPharmacy';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:burrowsPharmacy, break. <br>";
+		
+	}
+	
+	//eastEnd Pharmacy - Similar to wellington
+	if(stripos($defaultContents,"EAST END PHARMACY") !== false){
+		$configName = 'eastEndPharmacy';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:eastEndPharmacy, break. <br>";
+		
+	}
+	
+	
+	//ProScan Radiology Arkansas
+	if(stripos($defaultContents,"ProScan Radiology Arkansas") !== false){
+		$configName = 'proScanRadiologyAR';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:proScanRadiologyAR, break. <br>";
+		
+	}
+	//The surgical Clinic
+	if(stripos($defaultContents,"THE SURGICAL CLINIC OF CENTRAL ARKANSAS") !== false){
+		$configName = 'surgicalClinicAR';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:surgicalClinicAR, break. <br>";
+		
+	}
+	
+	//ARKANSAS HEART HOSPITAL
+	if(stripos($defaultContents,"ARKANSAS HEART HOSPITAL") !== false || stripos($defaultContents,'AHHC MAIN')!== false){
+		$configName = 'ahhcMain';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:ahhcMain, break. <br>";
+		
+	}
+	
+	//CHI St. Vincent Heart Clinic (Ng Heart Clinic, CHI SL Vingent,SE Vincent)
+	if(stripos($defaultContents,"Heart Clinic") !== false && (stripos($defaultContents,"CHI St") !== false || stripos($defaultContents,"CHI SL Vingent") !== false || stripos($defaultContents,"SE Vincent") !== false)){
+		$configName = 'stVincentHeartClinicAR';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:stVincentHeartClinicAR, break. <br>";
+		
+	}
+	
+	//ARKANSAS OTOLARYNGOLOGY CENTER
+	if(stripos($defaultContents,"ARKANSAS OTOLARYNGOLOGY CENTER") !== false){
+		$configName = 'aocCenter';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:aocCenter, break. <br>";
+		
+	}
+	
+	//OrthoArkansas 
+	if(stripos($defaultContents,"OrthoArkansas") !== false){
+		$configName = 'orthoArkansasPA';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:orthoArkansasPA, break. <br>";
+		
+	}
+	
+	//GastroArkansas 
+	if(stripos($defaultContents,"GI Alliance") !== false && stripos($defaultContents,"Gastroenterology Associates") !== false){
+		$configName = 'gastroArkansas';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:gastroArkansas, break. <br>";
+		
+	}
+	
+	//Arkansas Pathology Assoc - CoPathPlus	
+	$strPos1 = stripos($defaultContents,'Arkansas Pathology Assoc');
+	$strPos2 = stripos($defaultContents,'SURGICAL PATHOLOGY REPORT');
+	$strPos3 = stripos($defaultContents,'MOLECULAR PATHOLOGY REPORT');
+	if($strPos1 !== false && ($strPos2 !== false || $strPos3 !== false)){
+		$configName = 'pathologyAssocAR';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:pathologyAssocAR, break. <br>";
+		
+	}
+	
+	//OPTUMRX
+	if(stripos($defaultContents,"OPTUMRX") !== false){
+		$configName = 'optumRx';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:optumRx, break. <br>";
+		
+	}
+	
+	//Retina Associates
+	if(stripos($defaultContents,"Retina Associates") !== false){
+		$configName = 'retinaAssociatesPA';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:retinaAssociatesPA, break. <br>";
+		
+	}
+	
+	$strPos = stripos($defaultContents,'BAPTIST');
+	if($strPos !== false){
+		$configName = 'BaptistHealthMedical';
+		$reportContents = $defaultContents;
+		//echo "<br>Matched:BaptistHealthMedical, break. <br>";
+		
+	}
+	
+	//Sherwood Urgent Care
+	if(stripos($defaultContents,"Sherwood Urgent Care") !== false){
+		$configName = 'sherwoodUrgentCare';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:sherwoodUrgentCare, break. <br>";
+		
+	}
+	
+	//PREMIER SURGERY
+	if(stripos($defaultContents,"PREMIER SURGERY CENTER") !== false){
+		$configName = 'premierSurgeryCenter';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:premierSurgeryCenter, break. <br>";
+		
+	}
+	
+	//eRxNetwork
+	if(stripos($defaultContents,"Message ID:") !== false || stripos($defaultContents,'eRx ID:')!== false || stripos($defaultContents,'eRx Network')!== false){
+		$configName = 'eRxNetwork';
+		$reportContents = $defaultContents;
+		echo "<br>Matched:eRxNetwork, break. <br>";
+		
+	}
+	
+	
+	//Prior Authorization Assistance by CoverMyMeds
+	$strPos = stripos($coverMyMedContents,'Prior Authorization Assistance by');
+	$strPos1 = stripos($coverMyMedContents,'CoverMyMaeds');
+	$strPos2 = stripos($coverMyMedContents,'CoverMyMeds');//Dear Prior Authorization staff
+	$strPos3 = stripos($coverMyMedContents,'key.covermymeds.com');//key.covermymeds.com
+	if($strPos !== false && ($strPos1 !== false || $strPos2 !== false || $strPos3 !== false)){
+		$configName = 'CoverMyMedsPA';
+		$reportContents = $coverMyMedContents;
+		echo "<br>Matched:CoverMyMedsPA, break. <br>";
+		
+	}
+	//-----------------End of Lab search
 	
 	
 	///////////////////////////////////////////////////////////////////////////////////////////
