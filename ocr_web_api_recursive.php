@@ -88,8 +88,8 @@ exec();
 //$files = glob("C:/ocr/engine_results/*.txt");
 */
 $files = glob("/var/www/html/ocr/engine_results/*.txt");
-print_r($files);
-exit("=-0-=");
+//print_r($files);
+//exit("=-0-=");
 if (count($files) > 0) {
 	
 	$i = 0;
@@ -110,6 +110,7 @@ function process_covermymeds($afiles, $i)
 	//$pdfFile = "C:/ocr/fax_documents/".$pdfFileName.""; 
 	//$pdfFile = "/var/www//html/ocr/fax_documents/".$pdfFileName."";
 	$pdfFile = "/var/www//html/ocr/fax_documents_live/".$pdfFileName.""; //temporirly before fix of SFTP
+	$file = $pdfFile;
 	$file_name_with_full_path = realpath("$file");
 	
 	////////////////////////////////////////////////////////////////////////////////////
@@ -140,7 +141,8 @@ function process_covermymeds($afiles, $i)
 	$configName = '';
 	$faxType = '';
 	$faxCategory = '';
-	$reportContents = $defaultContents;
+	$defaultContents = $reportContents;
+	//$reportContents = $defaultContents;
 	////////////////////////////////////////////////////////////////////////////////////////
 	//AmericanEsotericLabs NexusLabs BaptistHealthMedical RadiologyAssociatesPA		
 	$strPos = stripos($defaultContents,'AMERICAN ESOTERIC LABORATORIES');
@@ -801,7 +803,8 @@ function process_covermymeds($afiles, $i)
 			
 	}
 	
-	if(!empty($reportData) && $configName == 'CoverMyMedsPA'){
+	//if(!empty($reportData) && $configName == 'CoverMyMedsPA'){
+		if(!empty($reportData)){
 		
 		
 		upload_fax_pdf($end_point_url, $email_addr, $pdfFile);
