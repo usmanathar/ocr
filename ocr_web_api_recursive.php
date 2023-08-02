@@ -93,9 +93,8 @@ exit("=-0-=");
 if (count($files) > 0) {
 	
 	$i = 0;
-	process_covermymeds($files, $i);    
-}
-
+	process_covermymeds($files, $i);
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 function process_covermymeds($afiles, $i)
 {
 	$file = $afiles[$i];
@@ -199,7 +198,7 @@ function process_covermymeds($afiles, $i)
 		$i++;
 		process_covermymeds($afiles, $i);
 	}
-}
+}	//End of process_covermymeds
 
 
 //$files_folder = "C:/ocr/fax_documents";
@@ -981,7 +980,7 @@ function processFaxFiles($afiles, $i, $ocrLabs){
 		$i++;
 		processFaxFiles($afiles, $i, $ocrLabs);
 	}
-}
+}	//End of processFaxFiles
 
 
 
@@ -1013,7 +1012,7 @@ function save_data($reportData = array()){
 		echo "<pre>"; print_r($result); echo "</pre>";
 	
 	}
-}
+}	//End of save_data
 
 function upload_fax_pdf($end_point_url, $email_addr, $file)
 {
@@ -1066,7 +1065,7 @@ function upload_fax_pdf($end_point_url, $email_addr, $file)
 	}
 	curl_close($ch);
 	print_r($result);
-}
+} //End of upload_fax_pdf
 
 function get_report_contents($url, $post_data, $delimiter)
 {
@@ -1110,7 +1109,7 @@ function get_report_contents($url, $post_data, $delimiter)
 	
 	
 	return $reportContents;
-}
+}	//End of get_report_contents
 
 function build_data_files($boundary, $fields, $files){
     $data = '';
@@ -1140,7 +1139,7 @@ function build_data_files($boundary, $fields, $files){
 
 
     return $data;
-}
+} // End of build_data_files
 
 function configName(){
 	
@@ -1188,7 +1187,7 @@ function unknownReportHandler($fileName='',$reportContents='', $configurationNam
 	$line_arr = array();
 	
 	return $responseArray;
-}
+}	//End of unknownReportHandler
 
 function aelReportHandler($fileName='',$reportContents='', $configurationName = '',$email_addr=''){
 	//It has two different formats
@@ -1408,7 +1407,7 @@ function aelReportHandler($fileName='',$reportContents='', $configurationName = 
 		
 	}//end if reportContents
 	return $responseArray;
-}
+}	//End of aelReportHandler
 
 function conwayReportHandler($fileName='',$reportContents='', $configurationName = '',$email_addr=''){	
 	
@@ -1572,7 +1571,7 @@ function conwayReportHandler($fileName='',$reportContents='', $configurationName
 	}
 	
 	return $responseArray;
-}
+}	//End of conwayReportHandler
 
 function conwayReportFormat1($fileName='',$reportContents='', $configurationName = '',$email_addr='')
 {
@@ -1704,7 +1703,7 @@ function conwayReportFormat1($fileName='',$reportContents='', $configurationName
 	}
 	
 	return $responseArray;
-}
+}	//conwayReportFormat1
 
 function conwayReportFormat2($fileName='',$reportContents='', $configurationName = '',$email_addr='')
 {
@@ -1901,7 +1900,7 @@ function conwayReportFormat2($fileName='',$reportContents='', $configurationName
 	}
 	
 	return $responseArray;
-}
+}	//End of conwayReportFormat2
 
 function catapultHealthReportHandler($fileName='',$reportContents='', $configurationName = '',$email_addr=''){
 	$responseArray = array('rpt_header' => array(), 'rpt_detail' => array());
@@ -2027,7 +2026,7 @@ function catapultHealthReportHandler($fileName='',$reportContents='', $configura
 	
 	//print "<pre>";print_r($responseArray);print "</pre>";exit;
 	return $responseArray;
-}
+}	//End of catapulHealthReportHandler
 
 //conwayRad
 function conwayRadHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
@@ -2258,7 +2257,7 @@ function conwayRadHandler($fileName='',$reportContents='', $configurationName = 
 	} //end if reportContents
 	
 	return $responseArray;
-}
+}	//End of conwayRadHandler
 
 
 
@@ -2298,7 +2297,7 @@ function questDiagnosticsHandler($fileName='',$reportContents='', $configuration
 	
 	$responseArray = array();
 	return $responseArray;	
-}
+}	//End of questDiagnosticHandler
 
 function pathologyAssocARHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
 {
@@ -2514,7 +2513,7 @@ function pathologyAssocARHandler($fileName='',$reportContents='', $configuration
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;
 	
-}
+}	//End of pathologyAssocARHandler
 
 //Baptist
 function baptistReportHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
@@ -3420,7 +3419,7 @@ function baptistReportHandler($fileName='',$reportContents='', $configurationNam
 	array_push($responseArray['rpt_header'], $tempArr);
 	//print "<pre>";print_r($responseArray);print "</pre>";exit;
 	return $responseArray;
-}
+}	//End of baptisReportHandler
 
 function isDate($value) {
 	if (!$value) {
@@ -3449,7 +3448,7 @@ function isDate($value) {
 			return false;
 		}
 	}
-}
+}	//End of isData
 
 function baptistLabReportHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='', $responseArray = array())
 {
@@ -3524,7 +3523,7 @@ function baptistLabReportHandler($fileName='',$reportContents='', $configuration
 	
 			
 	return $responseArray;
-}
+}	//End of baptistLabReportHandler
 
 function premierSurgeryCenterHandler($fileName='',$reportContents='', $configurationName = '',$email_addr=''){
 	$responseArray = array('rpt_header' => array(), 'rpt_detail' => array());
@@ -3659,7 +3658,7 @@ function premierSurgeryCenterHandler($fileName='',$reportContents='', $configura
 	
 	//print "<pre>";print_r($responseArray);print "</pre>";//exit;		
 	return $responseArray;
-}
+}	//End of premierSurgeryCenterHandler
 
 //sherwoodUrgentCareHandler
 function sherwoodUrgentCareHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
@@ -3787,7 +3786,7 @@ function sherwoodUrgentCareHandler($fileName='',$reportContents='', $configurati
 	
 	//print "<pre>";print_r($responseArray);print "</pre>";exit;		
 	return $responseArray;
-}
+}	//End of sherwoodUrgentCareHandler
 
 //ahhcMainHandler
 function ahhcMainHandler($fileName='',$reportContents='', $configurationName = '',$email_addr=''){
@@ -3920,7 +3919,7 @@ function ahhcMainHandler($fileName='',$reportContents='', $configurationName = '
 	
 	
 	return $responseArray;
-}
+}	//End of ahhcMainHanlder
 
 //Radiology Associates
 function rapaReportHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
@@ -4068,7 +4067,7 @@ function rapaReportHandler($fileName='',$reportContents='', $configurationName =
 	} //end if reportContents
 	
 	return $responseArray;
-}
+}	//End of rapaReportHandler
 
 function walgreensPharmacyHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
 {
@@ -4332,7 +4331,7 @@ function walgreensPharmacyHandler($fileName='',$reportContents='', $configuratio
 	array_push($responseArray['rpt_header'], $tempArr);
 	
 	return $responseArray;
-}
+}	//End of walgreenPharmacyHandler
 
 function cvsPharmacyHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
 {
@@ -4662,7 +4661,7 @@ function cvsPharmacyHandler($fileName='',$reportContents='', $configurationName 
 	array_push($responseArray['rpt_header'], $tempArr);
 	
 	return $responseArray;
-}
+}	//End of cvsPharmacyHandler
 
 function getMonthNumber($monthStr) {
 	//e.g, $month='Jan' or 'January' or 'JAN' or 'JANUARY' or 'january' or 'jan'
@@ -4720,7 +4719,7 @@ function getMonthNumber($monthStr) {
 			break;
 	}
 	return $m;
-}
+}	//End of getMonNumber
 
 function walmartPharmacyHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
 {
@@ -4910,7 +4909,7 @@ function walmartPharmacyHandler($fileName='',$reportContents='', $configurationN
 	array_push($responseArray['rpt_header'], $tempArr);
 	
 	return $responseArray;
-}
+}	//End of walmartPharmacyHandler
  
 function wellingtonPharmacyHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
 {
@@ -5100,7 +5099,7 @@ function wellingtonPharmacyHandler($fileName='',$reportContents='', $configurati
 	array_push($responseArray['rpt_header'], $tempArr);
 	
 	return $responseArray;
-}
+}	//End of wellingtonPharmacyHandler
 
 function burrowsPharmacyHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
 {
@@ -5533,7 +5532,7 @@ function burrowsPharmacyHandler($fileName='',$reportContents='', $configurationN
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	//print "<pre>";print_r($responseArray);print "</pre>";exit;
 	return $responseArray;
-}
+}	//End of burrowPahramcyHandler
 
 function eastEndPharmacyHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
 {
@@ -5966,7 +5965,7 @@ function eastEndPharmacyHandler($fileName='',$reportContents='', $configurationN
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	//print "<pre>";print_r($responseArray);print "</pre>";exit;
 	return $responseArray;
-}
+}	//End of eastEndPharmacyHandler
 
 function dailyDoseDrugStoreHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
 {
@@ -6286,7 +6285,7 @@ function dailyDoseDrugStoreHandler($fileName='',$reportContents='', $configurati
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	//print "<pre>";print_r($responseArray);print "</pre>";exit;
 	return $responseArray;
-}
+}	//End of dailyDoseDrugHandler
 
 function risonPharmacyHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
 {
@@ -6605,7 +6604,7 @@ function risonPharmacyHandler($fileName='',$reportContents='', $configurationNam
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	//print "<pre>";print_r($responseArray);print "</pre>";exit;
 	return $responseArray;
-}
+}	//End of risonPharmacyHandler
 
 //CORNERSTONE PHARMACY
 function cornerstonePharmacyHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
@@ -7013,7 +7012,7 @@ function cornerstonePharmacyHandler($fileName='',$reportContents='', $configurat
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;
-}
+}	//End of cornerstonePharmacyHandler
 
 //krogerPharmacyHandler
 function krogerPharmacyHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
@@ -8069,7 +8068,7 @@ function krogerPharmacyHandler($fileName='',$reportContents='', $configurationNa
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;
-}
+}	//End of krogerPharmacyHandler
 
 function optumRxHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
 {
@@ -8237,7 +8236,7 @@ function optumRxHandler($fileName='',$reportContents='', $configurationName = ''
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;
-}
+}	//End of optumRxHandler
 
 //CoverMyMedsPAHandler
 function CoverMyMedsPAHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
@@ -8742,7 +8741,7 @@ function CoverMyMedsPAHandler($fileName='',$reportContents='', $configurationNam
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;
-}
+}	//End of CoverMyMedsPAHandler
 
 //UAMS Medical Center 
 function uamsHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
@@ -9963,7 +9962,7 @@ function uamsHandler($fileName='',$reportContents='', $configurationName = '',$e
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;
-}
+}	//End of uamsHandler
 
 function surgicalClinicARHandler($fileName='',$reportContents='', $configurationName = '',$email_addr=''){
 	$responseArray = array('rpt_header' => array(), 'rpt_detail' => array());
@@ -10120,7 +10119,7 @@ function surgicalClinicARHandler($fileName='',$reportContents='', $configuration
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;
-}
+}	//End of surgicalClinicHandler
 
 function stVincentHeartClinicARHandler($fileName='',$reportContents='', $configurationName = '',$email_addr=''){
 	$responseArray = array('rpt_header' => array(), 'rpt_detail' => array());
@@ -10266,7 +10265,7 @@ function stVincentHeartClinicARHandler($fileName='',$reportContents='', $configu
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;
-}
+}	//End of stVincentHeartClinicARHandler
 
 function orthoArkansasPAHandler($fileName='',$reportContents='', $configurationName = '',$email_addr=''){
 	$responseArray = array('rpt_header' => array(), 'rpt_detail' => array());
@@ -10406,7 +10405,7 @@ function orthoArkansasPAHandler($fileName='',$reportContents='', $configurationN
 	print "</pre>";exit;*/
 	
 	return $responseArray;
-}
+}	//End of orthoArkansasPAHandler
 
 function gastroArkansasHandler($fileName='',$reportContents='', $configurationName = '',$email_addr=''){
 	$responseArray = array('rpt_header' => array(), 'rpt_detail' => array());
@@ -10562,7 +10561,7 @@ function gastroArkansasHandler($fileName='',$reportContents='', $configurationNa
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	//print "<pre>";print_r($responseArray);print "</pre>";exit;
 	return $responseArray;
-}
+}	//End of gastroArkanasasHandler
 
 //aocCenterHandler
 function aocCenterHandler($fileName='',$reportContents='', $configurationName = '',$email_addr=''){
@@ -10718,7 +10717,7 @@ function aocCenterHandler($fileName='',$reportContents='', $configurationName = 
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;
-}
+}	//End of aoCenterHandler
 
 function expressRxHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
 {
@@ -11484,7 +11483,7 @@ function expressRxHandler($fileName='',$reportContents='', $configurationName = 
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;	
-}
+}	//End of expressRxHandler
 
 function eRxNetworkHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
 {
@@ -12155,7 +12154,7 @@ function eRxNetworkHandler($fileName='',$reportContents='', $configurationName =
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;	
-}
+}	//End of eRxNetworkHandler
 
 //remedyDrugHandler (expressRxHandler)
 function remedyDrugHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
@@ -12343,7 +12342,7 @@ function remedyDrugHandler($fileName='',$reportContents='', $configurationName =
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;	
-}
+}	//End of remedyDrugHandler
 
 //Drug Emporium (remedyDrugHandler,expressRxHandler)
 function drugEmporiumHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
@@ -12729,7 +12728,7 @@ function drugEmporiumHandler($fileName='',$reportContents='', $configurationName
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;	
-}
+}	//End of drugEmporiumHandler
 
 function prescPadPharmacyHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
 {
@@ -12953,7 +12952,7 @@ function prescPadPharmacyHandler($fileName='',$reportContents='', $configuration
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;
-}
+}	//End of prescPadPharmacyhandler
 
 function watsonPharmacyHandler($fileName='',$reportContents='', $configurationName = '',$email_addr=''){
 	$responseArray = array('rpt_header' => array(), 'rpt_detail' => array());
@@ -13337,7 +13336,7 @@ function watsonPharmacyHandler($fileName='',$reportContents='', $configurationNa
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;	
-}
+}	//End of watsonPharmacyHandler
 
 function smithPharmacyHandler($fileName='',$reportContents='', $configurationName = '',$email_addr=''){
 	$responseArray = array('rpt_header' => array(), 'rpt_detail' => array());
@@ -13527,7 +13526,7 @@ function smithPharmacyHandler($fileName='',$reportContents='', $configurationNam
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;
-}
+}	//End of smithPharmacyHandler
 
 function blandfordPharmacyHandler($fileName='',$reportContents='', $configurationName = '',$email_addr=''){
 	$responseArray = array('rpt_header' => array(), 'rpt_detail' => array());
@@ -13725,7 +13724,7 @@ function blandfordPharmacyHandler($fileName='',$reportContents='', $configuratio
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;	
-}
+}	//End of blandforPharmacyHandler
 
 function super1PharmacyHandler($fileName='',$reportContents='', $configurationName = '',$email_addr=''){
 	$responseArray = array('rpt_header' => array(), 'rpt_detail' => array());
@@ -14023,7 +14022,7 @@ function super1PharmacyHandler($fileName='',$reportContents='', $configurationNa
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;
-}
+}	//End of superPharmacyHandler
 
 //eaglePharmacyHandler
 function eaglePharmacyHandler($fileName='',$reportContents='', $configurationName = '',$email_addr=''){
@@ -14177,7 +14176,7 @@ function eaglePharmacyHandler($fileName='',$reportContents='', $configurationNam
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;
-}
+}	//End of eaglePharmacyHandler
 
 function envolvePharmacyHandler($fileName='',$reportContents='', $configurationName = '',$email_addr=''){
 	$responseArray = array('rpt_header' => array(), 'rpt_detail' => array());
@@ -14310,7 +14309,7 @@ function envolvePharmacyHandler($fileName='',$reportContents='', $configurationN
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;
-}
+}	//End of envolvePharmacyHandler
 
 function cartiCenterHandler($fileName='',$reportContents='', $configurationName = '',$email_addr=''){
 	$responseArray = array('rpt_header' => array(), 'rpt_detail' => array());
@@ -14621,7 +14620,7 @@ function cartiCenterHandler($fileName='',$reportContents='', $configurationName 
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;	
-}
+}	//End of cartiCenterHandler
 
 function medicineManPharmacyHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
 {
@@ -14811,7 +14810,7 @@ function medicineManPharmacyHandler($fileName='',$reportContents='', $configurat
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;	
-}
+}	//End of medicineManPharmacyHandler
 
 //rheaDrugHandler
 function rheaDrugHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
@@ -15127,7 +15126,7 @@ function rheaDrugHandler($fileName='',$reportContents='', $configurationName = '
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;	
-}
+}	//End of rheaDrugHandler
 
 function freidericaPharmacyHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
 {
@@ -15314,7 +15313,7 @@ function freidericaPharmacyHandler($fileName='',$reportContents='', $configurati
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;	
-}
+}	//End of freidericaPharmacyHandler
 
 function theDrugStoreHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
 {
@@ -15501,7 +15500,7 @@ function theDrugStoreHandler($fileName='',$reportContents='', $configurationName
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;	
-}
+}	//End of theDrugStoreHandler
 
 function donsPharmacyHandler($fileName='',$reportContents='', $configurationName = '',$email_addr='')
 {
@@ -15770,12 +15769,12 @@ function donsPharmacyHandler($fileName='',$reportContents='', $configurationName
 	//$line_arr["site"] = "";
 	array_push($responseArray['rpt_detail'], $line_arr);*/
 	return $responseArray;
-}
+}	//End of donsPharmacyHandler
 
 function array_search_partial($arr, $keyword) {
 	foreach($arr as $index => $string) {
 		if (stripos($string, $keyword) !== FALSE)
 			return $index;
 	}
-}
+}	//End of array_search_partial
 ?>
