@@ -593,10 +593,211 @@ function process_covermymeds($afiles, $i)
 	$reportData = '';
 	switch($configName){
 						
-			case "CoverMyMedsPA":
+			/*case "CoverMyMedsPA":
 				
 				$reportData = CoverMyMedsPAHandler(basename($pdfFile),$reportContents,'CoverMyMedsPA',$email_addr);
-			break;	
+			break;	*/
+			case "AmericanEsotericLabs":
+				$reportData = aelReportHandler(basename($file),$reportContents,'AmericanEsotericLabs',$email_addr);
+			break;
+			
+			case "NexusLabs":
+				$reportData = conwayReportHandler(basename($file),$reportContents,'NexusLabs',$email_addr);
+			break;
+			
+			case "DardanelleLabs":
+				$reportData = conwayReportHandler(basename($file),$reportContents,'DardanelleLabs',$email_addr);
+			break;
+			
+			case "catapultHealth":
+				$reportData = catapultHealthReportHandler(basename($file),$reportContents,'catapultHealth',$email_addr);
+			break;
+			
+			case "conwayRad":
+				$reportData = conwayRadHandler(basename($file),$reportContents,'conwayRad',$email_addr);
+			break;
+			
+			case "ahhcMain":
+				$reportData = ahhcMainHandler(basename($file),$reportContents,'ahhcMain',$email_addr);
+			break;
+			
+			case "BaptistHealthMedical":
+				$reportData = baptistReportHandler(basename($file),$reportContents,'BaptistHealthMedical',$email_addr);
+			break;
+			
+			case "premierSurgeryCenter":
+				$reportData = premierSurgeryCenterHandler(basename($file),$reportContents,'premierSurgeryCenter',$email_addr);
+			break;
+			
+			case "sherwoodUrgentCare":
+				$reportData = sherwoodUrgentCareHandler(basename($file),$reportContents,'sherwoodUrgentCare',$email_addr);
+			break;
+			
+			
+			case "RadiologyAssociatesPA":
+				$reportData = rapaReportHandler(basename($file),$reportContents,'RadiologyAssociatesPA',$email_addr);
+			break;
+			
+			case "questDiagnostics":
+				$reportData = questDiagnosticsHandler(basename($file),$reportContents,'questDiagnostics',$email_addr);
+			break;
+			
+			case "burrowsPharmacy":
+				$reportData = burrowsPharmacyHandler(basename($file),$reportContents,'burrowsPharmacy',$email_addr);
+			break;
+			
+			case "eastEndPharmacy":
+				$reportData = eastEndPharmacyHandler(basename($file),$reportContents,'eastEndPharmacy',$email_addr);
+			break;
+			
+			
+			case "walgreensPharmacy":
+				$reportData = walgreensPharmacyHandler(basename($file),$reportContents,'walgreensPharmacy',$email_addr);
+			break;
+			
+			case "cvsPharmacy":
+				$reportData = cvsPharmacyHandler(basename($file),$reportContents,'cvsPharmacy',$email_addr);
+			break;
+			
+			case "walmartPharmacy":
+				$reportData = walmartPharmacyHandler(basename($file),$reportContents,'walmartPharmacy',$email_addr);
+			break;
+			
+			case "wellingtonPharmacy":
+				$reportData = wellingtonPharmacyHandler(basename($file),$reportContents,'wellingtonPharmacy',$email_addr);
+			break;
+			
+			case "dailyDoseDrugStore":
+				$reportData = dailyDoseDrugStoreHandler(basename($file),$reportContents,'dailyDoseDrugStore',$email_addr);
+			break;
+			
+			case "risonPharmacy":
+				$reportData = risonPharmacyHandler(basename($file),$reportContents,'risonPharmacy',$email_addr);
+			break;
+			
+			case "cornerstonePharmacy":
+				$reportData = cornerstonePharmacyHandler(basename($file),$reportContents,'cornerstonePharmacy',$email_addr);
+			break;
+			
+			case "krogerPharmacy":
+				$reportData = krogerPharmacyHandler(basename($file),$reportContents,'krogerPharmacy',$email_addr);
+			break;
+			
+			case "CoverMyMedsPA":
+				$reportData = CoverMyMedsPAHandler(basename($file),$reportContents,'CoverMyMedsPA',$email_addr);
+			break;
+			
+			case "uamsHospital":
+				$reportData = uamsHandler(basename($file),$reportContents,'uamsHospital',$email_addr);
+			break;
+			
+			case "expressRx":
+				$reportData = expressRxHandler(basename($file),$reportContents,'expressRx',$email_addr);
+			break;
+			
+			case "eRxNetwork":
+				$reportData = eRxNetworkHandler(basename($file),$reportContents,'eRxNetwork',$email_addr);
+			break;
+			
+			case "remedyDrug":
+				$reportData = remedyDrugHandler(basename($file),$reportContents,'remedyDrug',$email_addr);
+			break;
+			
+			case "drugEmporium":
+				$reportData = drugEmporiumHandler(basename($file),$reportContents,'drugEmporium',$email_addr);
+			break;
+			
+			case "prescPadPharmacy":
+				$reportData = prescPadPharmacyHandler(basename($file),$reportContents,'prescPadPharmacy',$email_addr);
+			break;
+			
+			case "blandfordPharmacy":
+				$reportData = blandfordPharmacyHandler(basename($file),$reportContents,'blandfordPharmacy',$email_addr);
+			break;
+			
+			case "smithPharmacy":
+				$reportData = smithPharmacyHandler(basename($file),$reportContents,'smithPharmacy',$email_addr);
+			break;
+			
+			case "smithDrug":
+				$reportData = smithPharmacyHandler(basename($file),$reportContents,'smithDrug',$email_addr);
+			break;
+			
+			case "watsonPharmacy":
+				$reportData = watsonPharmacyHandler(basename($file),$reportContents,'watsonPharmacy',$email_addr);
+			break;
+			
+			case "super1Pharmacy":
+				$reportData = super1PharmacyHandler(basename($file),$reportContents,'super1Pharmacy',$email_addr);
+			break;
+			
+			case "eaglePharmacy":
+				$reportData = eaglePharmacyHandler(basename($file),$reportContents,'eaglePharmacy',$email_addr);
+			break;
+			
+			case "envolvePharmacy":
+				$reportData = envolvePharmacyHandler(basename($file),$reportContents,'envolvePharmacy',$email_addr);
+			break;
+			
+			case "cartiCenter":
+				$reportData = cartiCenterHandler(basename($file),$reportContents,'cartiCenter',$email_addr);
+			break;
+			
+			case "medicineManPharmacy":
+				$reportData = medicineManPharmacyHandler(basename($file),$reportContents,'medicineManPharmacy',$email_addr);
+			break;
+			
+			case "rheaDrug":
+				$reportData = rheaDrugHandler(basename($file),$reportContents,'rheaDrug',$email_addr);
+			break;
+			
+			case "freidericaPharmacy":
+				$reportData = freidericaPharmacyHandler(basename($file),$reportContents,'freidericaPharmacy',$email_addr);
+			break;
+			
+			case "theDrugStore":
+				$reportData = theDrugStoreHandler(basename($file),$reportContents,'theDrugStore',$email_addr);
+			break;
+			
+			case "donsPharmacy":
+				$reportData = donsPharmacyHandler(basename($file),$reportContents,'donsPharmacy',$email_addr);
+			break;
+			
+			case "surgicalClinicAR":
+				$reportData = surgicalClinicARHandler(basename($file),$reportContents,'surgicalClinicAR',$email_addr);
+			break;
+			
+			case "stVincentHeartClinicAR":
+				$reportData = stVincentHeartClinicARHandler(basename($file),$reportContents,'stVincentHeartClinicAR',$email_addr);
+			break;
+			
+			case "aocCenter":
+				$reportData = aocCenterHandler(basename($file),$reportContents,'aocCenter',$email_addr);
+			break;
+			
+			case "pathologyAssocAR":
+				$reportData = pathologyAssocARHandler(basename($file),$reportContents,'pathologyAssocAR',$email_addr);
+			break;
+			
+			case "orthoArkansasPA":
+				$reportData = orthoArkansasPAHandler(basename($file),$reportContents,'orthoArkansasPA',$email_addr);
+			break;
+			
+			case "gastroArkansas":
+				$reportData = gastroArkansasHandler(basename($file),$reportContents,'gastroArkansas',$email_addr);
+			break;
+			
+			case "optumRx":
+				$reportData = optumRxHandler(basename($file),$reportContents,'optumRx',$email_addr);
+			break;
+			
+			
+			
+			
+			
+			default:
+				$reportData = unknownReportHandler(basename($file),$reportContents,'unknown',$email_addr);
+			break;
 			
 	}
 	
