@@ -115,7 +115,7 @@ function process_covermymeds($afiles, $i)
 	print_r($file);
 
 	//$file = $pdfFile;
-	exit("=-99");
+	//exit("=-99");
 	$file_name_with_full_path = realpath("$file");
 	
 	////////////////////////////////////////////////////////////////////////////////////
@@ -855,7 +855,7 @@ function process_covermymeds($afiles, $i)
 	}	
 	
 	unset($afiles[$i]);
-	if (count($afiles) > 0) {
+	if (count($afiles) > 0 && $i < 2) {	//for testing to run for 3 times only
 		//echo "allfiles <pre>"; print_r($afiles);
 		$i++;
 		process_covermymeds($afiles, $i);
@@ -866,12 +866,12 @@ function process_covermymeds($afiles, $i)
 //$files_folder = "C:/ocr/fax_documents";
 
 
-$ocrLabs = array("AmericanEsotericLabs","NexusLabs","BaptistHealthMedical","RadiologyAssociatesPA");
+/*$ocrLabs = array("AmericanEsotericLabs","NexusLabs","BaptistHealthMedical","RadiologyAssociatesPA");
 if (count($files) > 0) {
 	
 	$i = 0;
 	processFaxFiles($files, $i, $ocrLabs);    
-}
+}*/	//comenting for testing
 
 //////////////////////////////////////////////////////////////////
 
