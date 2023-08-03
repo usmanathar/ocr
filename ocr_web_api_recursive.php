@@ -97,7 +97,7 @@ if (count($files) > 0) {
 }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 function process_covermymeds($afiles, $i)
 {
-	print_r($afiles);
+	//print_r($afiles);
 	$file = $afiles[$i];
 	echo basename($file)."<br>"; //file name only, not path
 	$email_addr = 'support@faxage.com';
@@ -111,8 +111,8 @@ function process_covermymeds($afiles, $i)
 	//$pdfFile = "C:/ocr/fax_documents/".$pdfFileName.""; 
 	//$pdfFile = "/var/www//html/ocr/fax_documents/".$pdfFileName."";
 	$pdfFile = "/var/www//html/ocr/fax_documents_live/".$pdfFileName.""; //temporirly before fix of SFTP
-	print_r($pdfFile);
-	print_r($file);
+	//print_r($pdfFile);
+	//print_r($file);
 
 	//$file = $pdfFile;
 	//exit("=-99");
@@ -124,7 +124,9 @@ function process_covermymeds($afiles, $i)
 	$reportContents = file_get_contents($file_name_with_full_path);
 		
 	////////////////////////////////////////////////////////////////////////////////////////
-	
+
+	print_r($reportContents);
+	exit("999");
 	
 	//Prior Authorization Assistance by CoverMyMeds
 	$strPos = stripos($reportContents,'Prior Authorization Assistance by');
