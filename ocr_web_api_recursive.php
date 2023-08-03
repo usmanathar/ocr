@@ -97,6 +97,7 @@ if (count($files) > 0) {
 }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 function process_covermymeds($afiles, $i)
 {
+	print_r($afiles);
 	$file = $afiles[$i];
 	echo basename($file)."<br>"; //file name only, not path
 	$email_addr = 'support@faxage.com';
@@ -110,7 +111,11 @@ function process_covermymeds($afiles, $i)
 	//$pdfFile = "C:/ocr/fax_documents/".$pdfFileName.""; 
 	//$pdfFile = "/var/www//html/ocr/fax_documents/".$pdfFileName."";
 	$pdfFile = "/var/www//html/ocr/fax_documents_live/".$pdfFileName.""; //temporirly before fix of SFTP
-	$file = $pdfFile;
+	print_r($pdfFile);
+	print_r($file);
+
+	//$file = $pdfFile;
+	exit("=-99");
 	$file_name_with_full_path = realpath("$file");
 	
 	////////////////////////////////////////////////////////////////////////////////////
@@ -1666,7 +1671,7 @@ function save_data($reportData = array()){
 				
 		$result = curl_exec($ch);
 		curl_close($ch);
-		echo "<pre>"; print_r($result); echo "</pre>";
+		echo "<pre>Saving Data"; print_r($result); echo "</pre>";
 	
 	}
 }	//End of save_data
