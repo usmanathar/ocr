@@ -168,7 +168,7 @@ function process_covermymeds($afiles, $i)
 	
 	// input misspelled word
 	$input = 'CONWAY REGIONAL CLINICAL LABORATORIES';
-	
+	$conwayContents = $defaultContents;
 	
 	$strPos1 = stripos($conwayContents,'CONWAY REGIONAL CLINICAL LABORATORIES');
 	$strPos2 = stripos($conwayContents,'CONWAY REGIONAL CLINICAL');
@@ -208,7 +208,7 @@ function process_covermymeds($afiles, $i)
 		$reportContents = $defaultContents;
 		//echo "<br>Matched:conwayRad, break. <br>";		
 	}
-	
+	$rapaContents = $defaultContents;
 	$strPos1 = stripos($rapaContents,'Radiology Associates');
 	$strPos2 = stripos($rapaContents,'RADIOLOGY REPORT');
 	
@@ -581,7 +581,7 @@ function process_covermymeds($afiles, $i)
 		echo "<br>Matched:eRxNetwork, break. <br>";
 		
 	}
-	
+	$coverMyMedContents = $defaultContents;
 	
 	//Prior Authorization Assistance by CoverMyMeds
 	$strPos = stripos($coverMyMedContents,'Prior Authorization Assistance by');
