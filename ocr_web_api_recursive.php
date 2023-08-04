@@ -125,8 +125,8 @@ function process_covermymeds($afiles, $i)
 		
 	////////////////////////////////////////////////////////////////////////////////////////
 
-	print_r($reportContents);
-	exit("999");
+	//print_r($reportContents);
+	//exit("999");
 	
 	//Prior Authorization Assistance by CoverMyMeds
 	$strPos = stripos($reportContents,'Prior Authorization Assistance by');
