@@ -87,9 +87,10 @@ exec();
 
 //$files = glob("C:/ocr/engine_results/*.txt");
 */
-$files = glob("/var/www/html/ocr/engine_results/*.txt");
-//print_r($files);
-//exit("=-0-=");
+//$files = glob("/var/www/html/ocr/engine_results/*.txt");
+$files = glob("/var/www/html/ocr/engine_results/walgreen.txt");
+print_r($files);
+exit("=-0-=");
 if (count($files) > 0) {
 	
 	$i = 0;
