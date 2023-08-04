@@ -89,8 +89,8 @@ exec();
 */
 //$files = glob("/var/www/html/ocr/engine_results/*.txt");
 $files = glob("/var/www/html/ocr/engine_results/walgreen.txt");
-print_r($files);
-exit("=-0-=");
+//print_r($files);
+//exit("=-0-=");
 if (count($files) > 0) {
 	
 	$i = 0;
@@ -110,8 +110,8 @@ function process_covermymeds($afiles, $i)
 	$pdfFileName = pathinfo($file, PATHINFO_FILENAME);
 	
 	//$pdfFile = "C:/ocr/fax_documents/".$pdfFileName.""; 
-	//$pdfFile = "/var/www//html/ocr/fax_documents/".$pdfFileName."";
-	$pdfFile = "/var/www//html/ocr/fax_documents_live/".$pdfFileName.""; //temporirly before fix of SFTP
+	$pdfFile = "/var/www//html/ocr/fax_documents/".$pdfFileName."";
+	//$pdfFile = "/var/www//html/ocr/fax_documents_live/".$pdfFileName.""; //temporirly before fix of SFTP
 	//print_r($pdfFile);
 	//print_r($file);
 
