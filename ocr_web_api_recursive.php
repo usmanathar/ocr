@@ -111,11 +111,12 @@ function process_covermymeds($afiles, $i)
 	
 	//$pdfFile = "C:/ocr/fax_documents/".$pdfFileName.""; 
 	$pdfFile = "/var/www//html/ocr/fax_documents/".$pdfFileName."";
+	$file = "/var/www//html/ocr/fax_documents/".$pdfFileName."";
 	//$pdfFile = "/var/www//html/ocr/fax_documents_live/".$pdfFileName.""; //temporirly before fix of SFTP
 	//print_r($pdfFile);
 	//print_r($file);
 
-	$file = $pdfFile;
+	//$file = $pdfFile;
 	//exit("=-99");
 	$file_name_with_full_path = realpath("$file");
 	
