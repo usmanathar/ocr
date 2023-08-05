@@ -600,7 +600,10 @@ function process_covermymeds($afiles, $i)
 	
 	///////////////////////////////////////////////////////////////////////////////////////////
 	
-	$file = "/var/www//html/ocr/fax_documents/".$pdfFileName."";
+	//$file = "/var/www//html/ocr/fax_documents/".$pdfFileName."";
+	$file = "/var/www//html/ocr/fax_documents/".$pdfFileName."";	//for testing purpose
+	print_r($file);
+	ecit("909");
 	$reportData = '';
 	switch($configName){
 						
