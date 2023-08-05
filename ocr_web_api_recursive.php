@@ -4738,6 +4738,8 @@ function walgreensPharmacyHandler($fileName='',$reportContents='', $configuratio
 {
 	$responseArray = array('rpt_header' => array(), 'rpt_detail' => array());
 	//$line_arr = array("testName" => "", "value" => "", "flag" => "", "Reference" => "");
+	print_r($fileName);
+	exit("90");
 	//$flagsArr = array('LOW', 'NORMAL', 'HIGH');
 	$testName = '';
 		
