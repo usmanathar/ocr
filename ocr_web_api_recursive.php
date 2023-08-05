@@ -1392,7 +1392,7 @@ function processFaxFiles($afiles, $i, $ocrLabs){
 	
 	
 	///////////////////////////////////////////////////////////////////////////////////////////
-	
+	$file = "/var/www//html/ocr/fax_documents/".$pdfFileName."";	//for testing purpose
 	//echo nl2br($reportContents);
 	$reportData = "";
 	if(!empty($reportContents)){ //Sometimes OCR timout & return error without any contents
