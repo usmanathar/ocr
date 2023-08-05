@@ -111,7 +111,7 @@ function process_covermymeds($afiles, $i)
 	
 	//$pdfFile = "C:/ocr/fax_documents/".$pdfFileName.""; 
 	$pdfFile = "/var/www//html/ocr/fax_documents/".$pdfFileName."";
-	$file = "/var/www//html/ocr/fax_documents/".$pdfFileName."";
+	//
 	//$pdfFile = "/var/www//html/ocr/fax_documents_live/".$pdfFileName.""; //temporirly before fix of SFTP
 	//print_r($pdfFile);
 	//print_r($file);
@@ -600,7 +600,7 @@ function process_covermymeds($afiles, $i)
 	
 	///////////////////////////////////////////////////////////////////////////////////////////
 	
-	
+	$file = "/var/www//html/ocr/fax_documents/".$pdfFileName."";
 	$reportData = '';
 	switch($configName){
 						
