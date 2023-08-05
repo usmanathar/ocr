@@ -115,7 +115,7 @@ function process_covermymeds($afiles, $i)
 	//print_r($pdfFile);
 	//print_r($file);
 
-	//$file = $pdfFile;
+	$file = $pdfFile;
 	//exit("=-99");
 	$file_name_with_full_path = realpath("$file");
 	
