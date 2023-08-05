@@ -4754,6 +4754,7 @@ function walgreensPharmacyHandler($fileName='',$reportContents='', $configuratio
 	$responseArray['email_addr'] = $email_addr;	
 	
 	$original_file_name = pathinfo($fileName, PATHINFO_FILENAME);
+	print_r($original_file_name);
 	$tempArr = explode('_',$original_file_name);
 	print "<pre>=============";print_r($tempArr);print "======================</pre>";
 	$fax_date_time = date('Y-m-d H:i:s');
