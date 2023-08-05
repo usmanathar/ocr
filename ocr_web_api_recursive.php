@@ -604,7 +604,7 @@ function process_covermymeds($afiles, $i)
 	
 	print_r($file);
 	print_r(basename($file));
-	$file_name = str_replace('.txt', '.pdf', basename($file));
+	$file_name = str_replace('.txt', '', basename($file));
 	echo "==-==";
 	//$file = "/var/www//html/ocr/fax_documents/".$pdfFileName."";	//for testing purpose
 	$file = "/var/www//html/ocr/fax_documents/".$file_name."";	//for testing purpose
