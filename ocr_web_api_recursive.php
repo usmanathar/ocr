@@ -601,10 +601,13 @@ function process_covermymeds($afiles, $i)
 	///////////////////////////////////////////////////////////////////////////////////////////
 	
 	//$file = "/var/www//html/ocr/fax_documents/".$pdfFileName."";
+	
 	print_r($file);
 	print_r(basename($file));
+	$file_name = str_replace(basename($file), '.txt', '.pdf';
 	echo "==-==";
-	$file = "/var/www//html/ocr/fax_documents/".$pdfFileName."";	//for testing purpose
+	//$file = "/var/www//html/ocr/fax_documents/".$pdfFileName."";	//for testing purpose
+	$file = "/var/www//html/ocr/fax_documents/".$file_name."";	//for testing purpose
 	print_r($file);print_r(basename($file));
 	exit("909");
 	$reportData = '';
