@@ -609,7 +609,7 @@ function process_covermymeds($afiles, $i)
 	//$file = "/var/www//html/ocr/fax_documents/".$pdfFileName."";	//for testing purpose
 	$file = "/var/www//html/ocr/fax_documents/".$file_name."";	//for testing purpose
 	print_r($file);print_r(basename($file));
-	echo "PDF::".$pdfFile;
+	echo "PDF::".$pdfFile." BaseName::".basename($pdfFile);
 	//exit("909");
 	$reportData = '';
 	switch($configName){
