@@ -4739,8 +4739,8 @@ function walgreensPharmacyHandler($fileName='',$reportContents='', $configuratio
 {
 	$responseArray = array('rpt_header' => array(), 'rpt_detail' => array());
 	//$line_arr = array("testName" => "", "value" => "", "flag" => "", "Reference" => "");
-	print_r($fileName);
-	exit("90");
+	//print_r($fileName);
+	//exit("90");
 	//$flagsArr = array('LOW', 'NORMAL', 'HIGH');
 	$testName = '';
 		
@@ -4755,7 +4755,7 @@ function walgreensPharmacyHandler($fileName='',$reportContents='', $configuratio
 	
 	$original_file_name = pathinfo($fileName, PATHINFO_FILENAME);
 	$tempArr = explode('_',$original_file_name);
-	print "<pre>";print_r($tempArr);print "</pre>";
+	print "<pre>=============";print_r($tempArr);print "======================</pre>";
 	$fax_date_time = date('Y-m-d H:i:s');
 	$fax_data_id = 0;
 	if(!empty($tempArr)){
