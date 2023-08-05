@@ -601,6 +601,8 @@ function process_covermymeds($afiles, $i)
 	///////////////////////////////////////////////////////////////////////////////////////////
 	
 	//$file = "/var/www//html/ocr/fax_documents/".$pdfFileName."";
+	print_r($file);
+	echo "==-==";
 	$file = "/var/www//html/ocr/fax_documents/".$pdfFileName."";	//for testing purpose
 	print_r($file);print_r(basename($file));
 	exit("909");
