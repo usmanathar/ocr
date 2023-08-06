@@ -1,4 +1,5 @@
 <?php
+echo "In ocr recursive";
 set_time_limit(0); 
 //require_once('C:/ocr/SFTP/vendor/autoload.php');
 /*require_once('/var/www/html/ocr/SFTP/vendor/autoload.php');
@@ -89,7 +90,7 @@ exec();
 */
 //$files = glob("/var/www/html/ocr/engine_results/*.txt");
 $files = glob("/var/www/html/ocr/engine_results/1691095206_0_171287605_pdfFile.txt");
-//print_r($files);
+print_r($files);
 //exit("=-0-=");
 if (count($files) > 0) {
 	
