@@ -1720,6 +1720,8 @@ function upload_fax_pdf($end_point_url, $email_addr, $file)
 	$post = array('file_contents' => '@' . $file_name_with_full_path);
 	//the curl_setopt docs say that using '@' in postfields is deprecated in PHP 5.0
 	$curl_file_upload = new CURLFile($file_name_with_full_path);
+	echo "<<<<<<<<<<<".$file_name_with_full_path.">>>>>>>>>>>>>";
+	echo "==========".$curl_file_upload.">>>>>>>>>>>>>";
 	$post = array("file_contents" => $curl_file_upload, 'email_addr' => $email_addr,'fax_date_time'=>$fax_date_time,'fax_data_id'=>$fax_data_id);
 	$header = array('Content-Type: multipart/form-data');
 	$ch = curl_init();
