@@ -1695,6 +1695,7 @@ function save_data($reportData = array()){
 
 function upload_fax_pdf($end_point_url, $email_addr, $file)
 {
+	echo "FILE::".$file;
 	$file_name_with_full_path = realpath("$file");
 	
 	$target_url=$end_point_url."/upload_pdf_report";// live server
@@ -1719,6 +1720,7 @@ function upload_fax_pdf($end_point_url, $email_addr, $file)
 	
 	$post = array('file_contents' => '@' . $file_name_with_full_path);
 	//the curl_setopt docs say that using '@' in postfields is deprecated in PHP 5.0
+	$file_name_with_full_path = "/var/www/html/ocr/fax_documents/".$file;
 	$curl_file_upload = new CURLFile($file_name_with_full_path);
 	echo "<<<<<<<<<<<||".$file_name_with_full_path."||>>>>>>>>>>>>>";
 	print_r($curl_file_upload);
