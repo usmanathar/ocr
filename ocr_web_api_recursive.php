@@ -88,7 +88,7 @@ exec();
 //$files = glob("C:/ocr/engine_results/*.txt");
 */
 //$files = glob("/var/www/html/ocr/engine_results/*.txt");
-$files = glob("/var/www/html/ocr/engine_results/walgreen.txt");
+$files = glob("/var/www/html/ocr/engine_results/1691095206-0-171287605-pdfFile.txt");
 //print_r($files);
 //exit("=-0-=");
 if (count($files) > 0) {
