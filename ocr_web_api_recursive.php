@@ -2,7 +2,7 @@
 echo "In ocr recursive";
 set_time_limit(0); 
 //require_once('C:/ocr/SFTP/vendor/autoload.php');
-/*require_once('/var/www/html/ocr/SFTP/vendor/autoload.php');
+require_once('/var/www/html/ocr/SFTP/vendor/autoload.php');
 
 use phpseclib\Net\SFTP;
 $remote_host ='23.122.104.252';//lrwic.com
@@ -87,7 +87,6 @@ chdir($wdir);
 exec();
 
 //$files = glob("C:/ocr/engine_results/*.txt");
-*/
 //$files = glob("/var/www/html/ocr/engine_results/*.txt");
 $files = glob("/var/www/html/ocr/engine_results/1691095206_0_171287605_pdfFile.txt");
 print_r($files);
