@@ -27,8 +27,8 @@ else{
 $pathname ='/var/www/html/public_html/faxFiles/facility_21';
 
 $files = $sftp->nlist($pathname);
-//print_r($files);
-//exit("=-098");
+print_r($files);
+exit("=-098");
 foreach ($files as $file) {
 			  
 	if (substr($file, 0, 1) == '.') continue;
