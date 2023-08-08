@@ -74,13 +74,13 @@ foreach ($files as $file) {
 	$fileName = basename($path);
 	
 		
-	//if (!$sftp->delete("$pathname/$file")) {				
+	if (!$sftp->delete("$pathname/$file")) {				
 		
-	//}
+	}
 	
 	
 }
-exit("=-0-==");
+//exit("=-0-==");
 ///////////////////////////////////CoverMyMeds//////////////////////////////////////////////////////////////////////////
 //$resultPath = 'C:\\ocr\\engine_results';
 
@@ -97,8 +97,8 @@ chdir($wdir);
 exec('sudo ./test.sh');
 
 //$files = glob("C:/ocr/engine_results/*.txt");
-//$files = glob("/var/www/html/ocr/engine_results/*.txt");
-$files = glob("/var/www/html/ocr/engine_results/1691095206_0_171287605_pdfFile.txt");
+$files = glob("/var/www/html/ocr/engine_results/*.txt");
+//$files = glob("/var/www/html/ocr/engine_results/1691095206_0_171287605_pdfFile.txt");
 print_r($files);
 //exit("=-0-=");
 if (count($files) > 0) {
