@@ -27,16 +27,19 @@ else{
 $pathname ='/var/www/html/public_html/faxFiles/facility_21';
 
 $files = $sftp->nlist($pathname);
-print_r($files);
-exit("=-098");
+//print_r($files);
+//exit("=-098");
 foreach ($files as $file) {
 			  
 	if (substr($file, 0, 1) == '.') continue;
 	if ($file == '.' || $file == '..') continue;
 	//++$filecount;
 		
-	$upload_path  = 'C:/ocr/fax_documents/'; 
-	$upload_dir   = 'C:/ocr/fax_documents';
+	//$upload_path  = 'C:/ocr/fax_documents/'; 
+	//$upload_dir   = 'C:/ocr/fax_documents';
+
+	$upload_path  = '/var/www/html/ocr/fax_documents/'; 
+	$upload_dir   = '/var/www/html/ocr/fax_documents';
 				
 	
 	if(!file_exists($upload_path))
@@ -50,8 +53,11 @@ foreach ($files as $file) {
 	$sftp->get("$pathname/$file", "$local_file_name");// copies filename.remote to filename.local from the SFTP server
 	
 	////////////////////////////////////////////////	
-	$upload_path  = 'C:/ocr/google_documents/'; 
-	$upload_dir   = 'C:/ocr/google_documents';
+	//$upload_path  = 'C:/ocr/google_documents/'; 
+	//$upload_dir   = 'C:/ocr/google_documents';
+
+	$upload_path  = '/var/www/html/ocr/google_documents/'; 
+	$upload_dir   = '/var/www/html/ocr/google_documents';
 				
 	
 	if(!file_exists($upload_path))
@@ -74,17 +80,21 @@ foreach ($files as $file) {
 	
 	
 }
+exit("=-0-==");
 ///////////////////////////////////CoverMyMeds//////////////////////////////////////////////////////////////////////////
-$resultPath = 'C:\\ocr\\engine_results';
+//$resultPath = 'C:\\ocr\\engine_results';
+
+$resultPath = '/var/www/html/ocr/engine_results';
 
 array_map( 'unlink', array_filter((array) glob("$resultPath/*") ) );//good working
 
 
-$wdir = "C:\\Users\\EZ-ocr\\Desktop\\Image Decoder";
+//$wdir = "C:\\Users\\EZ-ocr\\Desktop\\Image Decoder";
+$wdir = "/var/www/html/ocr";
 chdir($wdir);
 // exec('java -jar app-assembly-1.0-SNAPSHOT.jar covermymeds C:/ocr/fax_documents C:\ocr\engine_results', $output, $return);
 //exec('java -jar app-assembly-1.0-SNAPSHOT.jar covermymeds C:/ocr/fax_documents C:\ocr\engine_results', $output, $return);
-exec();
+exec('sudo ./test.sh');
 
 //$files = glob("C:/ocr/engine_results/*.txt");
 //$files = glob("/var/www/html/ocr/engine_results/*.txt");
