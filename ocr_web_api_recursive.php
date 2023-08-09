@@ -865,8 +865,8 @@ function process_covermymeds($afiles, $i)
 		curl_close($ch);
 		
 		*/
-		if (file_exists($pdfFile)) {
-			unlink($pdfFile);
+		if (file_exists($pdfFile."pdf")) {
+			unlink($pdfFile."pdf");
 			
 		}
 
@@ -878,8 +878,8 @@ function process_covermymeds($afiles, $i)
 	echo "FILE::".$file." afiles::".$afiles[$i];
 	
 	
-	if (file_exists($file)) {
-	    unlink($file);
+	if (file_exists($afiles[$i]."tiff")) {
+	    unlink($afiles[$i]."tiff");
 	    
 	} else {
 	    // File not found.
