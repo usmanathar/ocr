@@ -23,6 +23,7 @@ do
   echo "${file_name}"
   convert -density 300 $SUBSTRING.pdf -depth 8 -strip -background white -alpha off /var/www/html/ocr/engine_results/$file_name.tiff
   tesseract /var/www/html/ocr/engine_results/$file_name.tiff - -l eng txt > /var/www/html/ocr/engine_results/$file_name.txt
+  #rm /var/www/html/ocr/engine_results/$file_name.tiff 
 done
 #mkdir /opt/D3GO/
 #and the rest of your commands
