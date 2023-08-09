@@ -884,6 +884,14 @@ function process_covermymeds($afiles, $i)
 	} else {
 	    // File not found.
 	}	
+
+	if (file_exists($afiles[$i])) {
+	    unlink($afiles[$i]);
+	    
+	} else {
+	    // File not found.
+	}	
+
 	
 	unset($afiles[$i]);exit("0900");
 	if (count($afiles) > 0 && $i < 2) {	//for testing to run for 3 times only
