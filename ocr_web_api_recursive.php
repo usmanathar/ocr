@@ -839,12 +839,12 @@ function process_covermymeds($afiles, $i)
 		
 		echo "::PDF File--->>>".$pdfFile." ::";
 		//exit("099");
-		//	upload_fax_pdf($end_point_url, $email_addr, $pdfFile);				//for testing only
+		upload_fax_pdf($end_point_url, $email_addr, $pdfFile);				//for testing only
 	
 		/*print "<pre>";
 		print_r($reportData);
 		print "</pre>";*/
-		/*
+		
 		$json_string = json_encode($reportData);
 		$ch = curl_init();
 					
@@ -864,7 +864,7 @@ function process_covermymeds($afiles, $i)
 		$result = curl_exec($ch);
 		curl_close($ch);
 		
-		*/
+	
 		$pdfFile = $pdfFile.".pdf";
 		if (file_exists($pdfFile)) {
 			unlink($pdfFile);
@@ -876,10 +876,10 @@ function process_covermymeds($afiles, $i)
 		echo "Not recognized by script.<br>";	
 	}
 
-	echo "PDFFile::".$pdfFile." FILE::".$file." afiles::".$afiles[$i];
+	//echo "PDFFile::".$pdfFile." FILE::".$file." afiles::".$afiles[$i];
 	
 	$tiffFile = $afiles[$i].".tiff";
-	echo "TIFF::".$tiffFile." ::";
+	//echo "TIFF::".$tiffFile." ::";
 	if (file_exists($tiffFile)) {
 	    unlink($tiffFile);
 	    
