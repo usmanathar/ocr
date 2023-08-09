@@ -837,8 +837,9 @@ function process_covermymeds($afiles, $i)
 	//if(!empty($reportData) && $configName == 'CoverMyMedsPA'){
 		if(!empty($reportData)){
 		
-		
-		upload_fax_pdf($end_point_url, $email_addr, $pdfFile);
+		echo "::PDF File--->>>".$pdfFile." ::";
+		exit("099");
+		//	upload_fax_pdf($end_point_url, $email_addr, $pdfFile);				//for testing only
 	
 		/*print "<pre>";
 		print_r($reportData);
@@ -868,6 +869,7 @@ function process_covermymeds($afiles, $i)
 			unlink($pdfFile);
 			
 		}
+
 	}
 	else{
 		echo "Not recognized by script.<br>";	
