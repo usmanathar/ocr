@@ -876,9 +876,9 @@ function process_covermymeds($afiles, $i)
 		echo "Not recognized by script.<br>";	
 	}
 
-	echo "PDFFile::".$pdfFile." ßFILE::".$file." afiles::".$afiles[$i];
+	echo "PDFFile::".$pdfFile." FILE::".$file." afiles::".$afiles[$i];
 	
-	$tiffFile = $file.".tiff";
+	$tiffFile = $afiles[$i].".tiff";
 	echo "TIFF::".$tiffFile." ::";
 	if (file_exists($tiffFile)) {
 	    unlink($tiffFile);
