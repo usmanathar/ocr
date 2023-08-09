@@ -865,7 +865,7 @@ function process_covermymeds($afiles, $i)
 		curl_close($ch);
 		
 		*/
-		$pdfFile = $pdfFile."pdf";
+		$pdfFile = $pdfFile.".pdf";
 		if (file_exists($pdfFile)) {
 			unlink($pdfFile);
 			
@@ -876,10 +876,10 @@ function process_covermymeds($afiles, $i)
 		echo "Not recognized by script.<br>";	
 	}
 
-	echo "FILE::".$file." afiles::".$afiles[$i];
+	echo "PDFFile::".$pdfFile." ßFILE::".$file." afiles::".$afiles[$i];
 	
-	$tiffFile = $file."tiff";
-	echo "TIFF::".$tiffFile;
+	$tiffFile = $file.".tiff";
+	echo "TIFF::".$tiffFile." ::";
 	if (file_exists($tiffFile)) {
 	    unlink($tiffFile);
 	    
