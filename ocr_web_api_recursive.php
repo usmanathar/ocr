@@ -865,8 +865,9 @@ function process_covermymeds($afiles, $i)
 		curl_close($ch);
 		
 		*/
-		if (file_exists($pdfFile."pdf")) {
-			unlink($pdfFile."pdf");
+		$pdfFile = $pdfFile."pdf";
+		if (file_exists($pdfFile)) {
+			unlink($pdfFile);
 			
 		}
 
