@@ -876,7 +876,7 @@ function process_covermymeds($afiles, $i)
 	}
 
 	echo "FILE::".$file." afiles::".$afiles[$i];
-	exit("0900");
+	
 	
 	if (file_exists($file)) {
 	    unlink($file);
@@ -885,7 +885,7 @@ function process_covermymeds($afiles, $i)
 	    // File not found.
 	}	
 	
-	unset($afiles[$i]);
+	unset($afiles[$i]);exit("0900");
 	if (count($afiles) > 0 && $i < 2) {	//for testing to run for 3 times only
 		//echo "allfiles <pre>"; print_r($afiles);
 		$i++;
