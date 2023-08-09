@@ -878,9 +878,10 @@ function process_covermymeds($afiles, $i)
 
 	echo "FILE::".$file." afiles::".$afiles[$i];
 	
-	
-	if (file_exists($afiles[$i]."tiff")) {
-	    unlink($afiles[$i]."tiff");
+	$tiffFile = $file."tiff";
+	echo "TIFF::".$tiffFile;
+	if (file_exists($tiffFile)) {
+	    unlink($tiffFile);
 	    
 	} else {
 	    // File not found.
