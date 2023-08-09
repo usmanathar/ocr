@@ -94,7 +94,9 @@ $wdir = "/var/www/html/ocr";
 chdir($wdir);
 // exec('java -jar app-assembly-1.0-SNAPSHOT.jar covermymeds C:/ocr/fax_documents C:\ocr\engine_results', $output, $return);
 //exec('java -jar app-assembly-1.0-SNAPSHOT.jar covermymeds C:/ocr/fax_documents C:\ocr\engine_results', $output, $return);
-exec('sudo ./test.sh');
+//exec('sudo ./test.sh');
+exec('echo The##PRoxy | sudo -S ./test.sh');
+//echo <password> | sudo -S <command>
 
 //$files = glob("C:/ocr/engine_results/*.txt");
 $files = glob("/var/www/html/ocr/engine_results/*.txt");
