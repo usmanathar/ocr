@@ -74,7 +74,7 @@ foreach ($files as $file) {
 	$fileName = basename($path);
 	
 	echo "FILE::-->".$pathname."/".$file;
-	exit(":-:");
+	//exit(":-:");
 	if (!$sftp->delete("$pathname/$file")) {				
 		
 	}
@@ -896,7 +896,7 @@ function process_covermymeds($afiles, $i)
 	}	
 
 	
-	unset($afiles[$i]);exit("0900");
+	unset($afiles[$i]);//exit("0900");
 	if (count($afiles) > 0 && $i < 2) {	//for testing to run for 3 times only
 		//echo "allfiles <pre>"; print_r($afiles);
 		$i++;
