@@ -74,7 +74,7 @@ foreach ($files as $file) {
 	$fileName = basename($path);
 	
 	echo "FILE::-->".$pathname."/".$file;
-	exit(":-:"):
+	exit(":-:");
 	if (!$sftp->delete("$pathname/$file")) {				
 		
 	}
