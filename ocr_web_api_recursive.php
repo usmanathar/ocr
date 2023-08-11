@@ -1,6 +1,7 @@
 <?php
 echo "In ocr recursive";
 set_time_limit(0); 
+$filecount = 0;
 //require_once('C:/ocr/SFTP/vendor/autoload.php');
 require_once('/var/www/html/ocr/SFTP/vendor/autoload.php');
 
@@ -28,12 +29,13 @@ $pathname ='/var/www/html/public_html/faxFiles/facility_21';
 
 $files = $sftp->nlist($pathname);
 print_r($files);
-exit("=-098");
+//exit("=-098");
 foreach ($files as $file) {
+
 			  
 	if (substr($file, 0, 1) == '.') continue;
 	if ($file == '.' || $file == '..') continue;
-	//++$filecount;
+	++$filecount;
 		
 	//$upload_path  = 'C:/ocr/fax_documents/'; 
 	//$upload_dir   = 'C:/ocr/fax_documents';
@@ -81,7 +83,8 @@ foreach ($files as $file) {
 	
 	
 }
-//exit("=-0-==");
+echo "FILE COUNT::".$filecount;
+exit("=-0-==");
 ///////////////////////////////////CoverMyMeds//////////////////////////////////////////////////////////////////////////
 //$resultPath = 'C:\\ocr\\engine_results';
 
