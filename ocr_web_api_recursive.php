@@ -162,6 +162,7 @@ function process_covermymeds($afiles, $i)
 	$isRAPA = 0;				
 	$configName = '';
 	$faxType = '';
+	$faxTypeMain = '';
 	$faxCategory = '';
 	$defaultContents = $reportContents;
 	//$reportContents = $defaultContents;
@@ -981,6 +982,7 @@ function processFaxFiles($afiles, $i, $ocrLabs){
 	$isRAPA = 0;				
 	$configName = '';
 	$faxType = '';
+	$faxTypeMain = '';
 	$faxCategory = '';
 	$reportContents = $defaultContents;
 	////////////////////////////////////////////////////////////////////////////////////////
@@ -3062,7 +3064,7 @@ function pathologyAssocARHandler($fileName='',$reportContents='', $configuration
 		{
 			$reportStart = 1;
 			$headerStart = 1;			
-			$faxType = "MOLECULAR PATHOLOGY REPORT";
+			$faxType = $faxTypeMain = "MOLECULAR PATHOLOGY REPORT";
 			$posStart = stripos($reportContents,'MOLECULAR PATHOLOGY REPORT');
 			
 			
@@ -3070,7 +3072,7 @@ function pathologyAssocARHandler($fileName='',$reportContents='', $configuration
 		else if(stripos($reportContents,'SURGICAL PATHOLOGY REPORT') !== false){
 			$reportStart = 1;
 			$headerStart = 1;			
-			$faxType = "SURGICAL PATHOLOGY REPORT";
+			$faxType = $faxTypeMain = "SURGICAL PATHOLOGY REPORT";
 			$posStart = stripos($reportContents,'SURGICAL PATHOLOGY REPORT');
 		}			
 		$reportContents = substr($reportContents,$posStart);//to end of contents
@@ -4534,6 +4536,7 @@ function ahhcMainHandler($fileName='',$reportContents='', $configurationName = '
 	$bodyStart = 0;
 	$faxCategory = 'Hospital';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -4820,6 +4823,7 @@ function walgreensPharmacyHandler($fileName='',$reportContents='', $configuratio
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
@@ -5092,6 +5096,7 @@ function cvsPharmacyHandler($fileName='',$reportContents='', $configurationName 
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -5472,6 +5477,7 @@ function walmartPharmacyHandler($fileName='',$reportContents='', $configurationN
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -5662,6 +5668,7 @@ function wellingtonPharmacyHandler($fileName='',$reportContents='', $configurati
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		$rpt_lines = explode("\n",$reportContents);
 		
@@ -5854,6 +5861,7 @@ function burrowsPharmacyHandler($fileName='',$reportContents='', $configurationN
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -6287,6 +6295,7 @@ function eastEndPharmacyHandler($fileName='',$reportContents='', $configurationN
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -6722,6 +6731,7 @@ function dailyDoseDrugStoreHandler($fileName='',$reportContents='', $configurati
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -7041,6 +7051,7 @@ function risonPharmacyHandler($fileName='',$reportContents='', $configurationNam
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -7359,6 +7370,7 @@ function cornerstonePharmacyHandler($fileName='',$reportContents='', $configurat
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -7767,6 +7779,7 @@ function krogerPharmacyHandler($fileName='',$reportContents='', $configurationNa
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -8822,6 +8835,7 @@ function optumRxHandler($fileName='',$reportContents='', $configurationName = ''
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -9000,6 +9014,7 @@ function CoverMyMedsPAHandler($fileName='',$reportContents='', $configurationNam
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -9506,6 +9521,7 @@ function uamsHandler($fileName='',$reportContents='', $configurationName = '',$e
 	$faxCategory = 'Hospital';//Medical Center/UAMS Hospital
 	$department = '';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -10713,6 +10729,7 @@ function surgicalClinicARHandler($fileName='',$reportContents='', $configuration
 	$bodyStart = 0;
 	$faxCategory = 'Hospital';//Medical Center/UAMS Hospital
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -10870,6 +10887,7 @@ function stVincentHeartClinicARHandler($fileName='',$reportContents='', $configu
 	$bodyStart = 0;
 	$faxCategory = 'Hospital';//Medical Center/UAMS Hospital
 	$faxType = '';
+	$faxTypeMain = '';
 	//'Date of visit:,DOB:,Age:, Medical record number:, PROBLEM LIST, DRUG ALLERGIES & SENSITIVITY LIST, MEDICATIONS, CHIEF COMPLAINTS, HISTORY OF PRESENT ILLNESS, PAST HISTORY,REVIEW OF SYSTEMS,PHYSICAL EXAMINATION, VITAL SIGNS,CONSTITUTIONAL,IMPRESSION/PLAN,PLAN:,TODAY'S ORDERS'
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
@@ -11016,6 +11034,7 @@ function orthoArkansasPAHandler($fileName='',$reportContents='', $configurationN
 	$bodyStart = 0;
 	$faxCategory = 'Hospital';//Medical Center/UAMS Hospital/Clinic
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -11313,6 +11332,7 @@ function aocCenterHandler($fileName='',$reportContents='', $configurationName = 
 	$bodyStart = 0;
 	$faxCategory = 'Hospital';//Medical Center/UAMS Hospital
 	$faxType = '';
+	$faxTypeMain = '';
 	//'Clinic Location:,DOS:,Patient Name:,Patient ID:,Date of Birth:,Age:, CHIEF COMPLAINT:,HISTORY OF PRESENT ILLNESS:,SOCIAL HISTORY:'
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
@@ -11471,6 +11491,7 @@ function expressRxHandler($fileName='',$reportContents='', $configurationName = 
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -12238,6 +12259,7 @@ function eRxNetworkHandler($fileName='',$reportContents='', $configurationName =
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -12909,6 +12931,7 @@ function remedyDrugHandler($fileName='',$reportContents='', $configurationName =
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -13098,6 +13121,7 @@ function drugEmporiumHandler($fileName='',$reportContents='', $configurationName
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between		
 		$reportContents = str_ireplace('DRUG EMPORIUM PHARMC','',$reportContents);
@@ -13482,6 +13506,7 @@ function prescPadPharmacyHandler($fileName='',$reportContents='', $configuration
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -13705,6 +13730,7 @@ function watsonPharmacyHandler($fileName='',$reportContents='', $configurationNa
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -14093,6 +14119,7 @@ function smithPharmacyHandler($fileName='',$reportContents='', $configurationNam
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -14279,6 +14306,7 @@ function blandfordPharmacyHandler($fileName='',$reportContents='', $configuratio
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -14477,6 +14505,7 @@ function super1PharmacyHandler($fileName='',$reportContents='', $configurationNa
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -14776,6 +14805,7 @@ function eaglePharmacyHandler($fileName='',$reportContents='', $configurationNam
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -14929,6 +14959,7 @@ function envolvePharmacyHandler($fileName='',$reportContents='', $configurationN
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -15060,6 +15091,7 @@ function cartiCenterHandler($fileName='',$reportContents='', $configurationName 
 	$bodyStart = 0;
 	$faxCategory = 'Hospital';//Medical Center/UAMS Hospital
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -15374,6 +15406,7 @@ function medicineManPharmacyHandler($fileName='',$reportContents='', $configurat
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -15565,6 +15598,7 @@ function rheaDrugHandler($fileName='',$reportContents='', $configurationName = '
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -15880,6 +15914,7 @@ function freidericaPharmacyHandler($fileName='',$reportContents='', $configurati
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -16067,6 +16102,7 @@ function theDrugStoreHandler($fileName='',$reportContents='', $configurationName
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
@@ -16256,6 +16292,7 @@ function donsPharmacyHandler($fileName='',$reportContents='', $configurationName
 	$bodyStart = 0;
 	$faxCategory = 'Pharmacy';
 	$faxType = '';
+	$faxTypeMain = '';
 	if(!empty($reportContents)){
 		//$reportContents = trim(preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $reportContents)); //Some time It removes sapces in between
 		$rpt_lines = explode("\n",$reportContents);
