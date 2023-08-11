@@ -103,8 +103,9 @@ exec('echo The##PRoxy | sudo -S ./test.sh');
 $files = glob("/var/www/html/ocr/engine_results/*.txt");
 //$files = glob("/var/www/html/ocr/engine_results/1691095206_0_171287605_pdfFile.txt");
 print_r($files);
-//exit("=-0-=");
-if (count($files) > 0 && !str_contains($files[0], '*')) {
+echo "FILE::".$files[0];
+exit("=-0-=");
+if (count($files) > 0)) {
     
 	$i = 0;
 	process_covermymeds($files, $i);
@@ -113,7 +114,7 @@ else
 {
 	echo "NO file";
 }    
-exit;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+//exit;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 function process_covermymeds($afiles, $i)
 {
 	//print_r($afiles);
