@@ -105,7 +105,7 @@ $files = glob("/var/www/html/ocr/engine_results/*.txt");
 print_r($files);
 echo "FILE::".$files[0];
 exit("=-0-=");
-if (count($files) > 0)) {
+if (count($files) > 0) {
     
 	$i = 0;
 	process_covermymeds($files, $i);
