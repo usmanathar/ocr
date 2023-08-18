@@ -108,6 +108,7 @@ $files = glob("/var/www/html/ocr/engine_results/*.txt");
 print_r($files);
 echo "FILE::".$files[0];
 //exit("=-0-=");
+echo "count(Files)::".count($files)." FileCount::".$filecount;
 if (count($files) > 0 && $filecount > 0) {
     
 	$i = 0;
