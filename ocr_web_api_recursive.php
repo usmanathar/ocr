@@ -107,7 +107,7 @@ $files = glob("/var/www/html/ocr/engine_results/*.txt");
 //$files = glob("/var/www/html/ocr/engine_results/1691095206_0_171287605_pdfFile.txt");
 print_r($files);
 echo "FILE::".$files[0];
-if (str_contains($files[0], "*"))
+if (strpos($files[0], "*") !== false)
 {
 	echo "0 file";
 }
