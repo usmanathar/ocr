@@ -107,6 +107,10 @@ $files = glob("/var/www/html/ocr/engine_results/*.txt");
 //$files = glob("/var/www/html/ocr/engine_results/1691095206_0_171287605_pdfFile.txt");
 print_r($files);
 echo "FILE::".$files[0];
+if (str_contains($files[0], "*"))
+{
+	echo "0 file";
+}
 //exit("=-0-=");
 echo "count(Files)::".count($files)." FileCount::".$filecount;
 if (count($files) > 0 && $filecount > 0) {
