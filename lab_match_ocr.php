@@ -1196,6 +1196,7 @@ function aelReportHandler($fileName='',$reportContents='', $configurationName = 
 	
 	if(!empty($reportContents)){
 		$rpt_lines = explode("\n",$reportContents);
+		print_r($rpt_lines);
 		
 		if(!empty($rpt_lines)){
 			if(stripos($reportContents,'AEL MEMPHIS') !== false && stripos($reportContents,'Lab No:') !== false){
