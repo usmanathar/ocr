@@ -108,7 +108,7 @@ $files = glob("/var/www/html/ocr/test_engine_results/*.txt");
 //$files = glob("/var/www/html/ocr/engine_results/1691095206_0_171287605_pdfFile.txt");
 print_r($files);
 echo "FILE::".$files[0];
-exit("=-0");
+//exit("=-0");
 if (strpos($files[0], "*") !== false)
 {
 	echo "0 file";
@@ -194,6 +194,7 @@ function process_covermymeds($afiles, $i)
 		echo "<br>Matched:AmericanEsotericLabs, break. <br>";
 		
 	}
+	exit("==");
 	$strPos1 = $strPos2 ='';
 	
 	
