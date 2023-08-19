@@ -852,7 +852,8 @@ function process_covermymeds($afiles, $i)
 				$reportData = unknownReportHandler(basename($file),$reportContents,'unknown',$email_addr);
 			break;
 			
-	}
+	}	//end of switch cases
+	exit("00");
 	
 	//if(!empty($reportData) && $configName == 'CoverMyMedsPA'){
 		if(!empty($reportData)){
