@@ -12,7 +12,7 @@ then
 fi
 
 #I am root
-search_dir=/var/www/html/ocr/fax_documents
+search_dir=/var/www/html/ocr/test_fax_documents
 
 for entry in "$search_dir"/*.pdf
 do
@@ -21,8 +21,8 @@ do
   echo "${SUBSTRING}"
   file_name=$(echo $SUBSTRING| cut -d'/' -f 7)
   echo "${file_name}"
-  convert -density 300 $SUBSTRING.pdf -depth 8 -strip -background white -alpha off /var/www/html/ocr/engine_results/$file_name.tiff
-  tesseract /var/www/html/ocr/engine_results/$file_name.tiff - -l eng txt > /var/www/html/ocr/engine_results/$file_name.txt
+  convert -density 300 $SUBSTRING.pdf -depth 8 -strip -background white -alpha off /var/www/html/ocr/test_engine_results/$file_name.tiff
+  tesseract /var/www/html/ocr/engine_results/$file_name.tiff - -l eng txt > /var/www/html/ocr/test_engine_results/$file_name.txt
   #rm /var/www/html/ocr/engine_results/$file_name.tiff 
 done
 #mkdir /opt/D3GO/
