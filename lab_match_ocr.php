@@ -115,7 +115,7 @@ if (strpos($files[0], "*") !== false)
 }
 //exit("=-0-=");
 echo "count(Files)::".count($files)." FileCount::".$filecount;
-if (count($files) > 0 && $filecount > 0) {
+if (count($files) > 0 ) {
     
 	$i = 0;
 	process_covermymeds($files, $i);
