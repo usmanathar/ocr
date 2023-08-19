@@ -194,7 +194,7 @@ function process_covermymeds($afiles, $i)
 		echo "<br>Matched:AmericanEsotericLabs, break. <br>";
 		
 	}
-	exit("==");
+	//exit("==");
 	$strPos1 = $strPos2 ='';
 	
 	
@@ -641,7 +641,7 @@ function process_covermymeds($afiles, $i)
 	$file = "/var/www//html/ocr/fax_documents/".$file_name."";	//for testing purpose
 	print_r($file);print_r(basename($file));
 	echo "PDF::".$pdfFile." BaseName::".basename($pdfFile);
-	//exit("909");
+	exit("808");
 	$reportData = '';
 	switch($configName){
 						
