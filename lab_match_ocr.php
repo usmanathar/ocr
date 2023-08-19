@@ -1149,6 +1149,7 @@ function unknownReportHandler($fileName='',$reportContents='', $configurationNam
 }	//End of unknownReportHandler
 
 function aelReportHandler($fileName='',$reportContents='', $configurationName = '',$email_addr=''){
+	echo "In aelReportHandler";
 	//It has two different formats
 	$responseArray = array('rpt_header' => array(), 'rpt_detail' => array());
 	$line_arr = array("testName" => "", "value" => "", "flag" => "", "Reference" => "");
