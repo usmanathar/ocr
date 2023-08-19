@@ -1201,6 +1201,7 @@ function aelReportHandler($fileName='',$reportContents='', $configurationName = 
 		
 		if(!empty($rpt_lines)){
 			if(stripos($reportContents,'AEL MEMPHIS') !== false && stripos($reportContents,'Lab No:') !== false){
+				echo "||||||||||=====In StrPos=====||||||||||";
 				$reportStart = 1;
 				$headerStart = 1;
 				$responseArray['file_version'] = 'new';
