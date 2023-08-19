@@ -106,6 +106,7 @@ exec('echo The##PRoxy | sudo -S ./test-match.sh');
 //$files = glob("C:/ocr/engine_results/*.txt");
 //$files = glob("/var/www/html/ocr/test_engine_results/*.txt");
 $files = glob("/var/www/html/ocr/test_engine_results/AEL_CBC.txt");
+
 print_r($files);
 echo "FILE::".$files[0];
 //exit("=-0");
