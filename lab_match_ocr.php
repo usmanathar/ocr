@@ -1210,14 +1210,16 @@ function aelReportHandler($fileName='',$reportContents='', $configurationName = 
 				if(stripos($reportContents,'Units') !== false){
 					$posStart = stripos($reportContents,'Units');
 					$headerContents = substr($reportContents,0,$posStart);
-					
+					echo "HeaderContent::".$headerContents;
 				}
 				////////////////////////////////////////////////////////////////////
 				$rpt_lines = explode("\n",$headerContents);
+				print_r($rpt_lines);
 				
 				foreach($rpt_lines as $key => $line){
-					
+					echo "LINE::".$line;
 					$elements = explode("\t",$line);
+					print_r($elements);
 					
 					
 					
